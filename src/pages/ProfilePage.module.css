@@ -49,12 +49,3 @@
   flex: 1;
   background: var(--color-page-bg);
 }
-
-.emptyState {
-  max-width: 64rem;
-  margin-inline: auto;
-  padding: 4rem 2rem;
-  text-align: center;
-  color: var(--color-text-muted);
-  font-size: 1.1rem;
-}

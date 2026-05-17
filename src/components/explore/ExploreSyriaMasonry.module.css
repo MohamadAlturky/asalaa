@@ -3,12 +3,12 @@
   max-width: 90rem;
   margin-inline: auto;
   padding-inline: clamp(1rem, 4vw, 2.5rem);
-  padding-block: clamp(1.5rem, 4vw, 2.5rem);
+  padding-block: clamp(1.25rem, 4vw, 2.4rem);
 }
 
 .grid {
   display: grid;
-  gap: 0.5rem;
+  gap: clamp(0.45rem, 1vw, 0.65rem);
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: repeat(4, minmax(140px, 1fr));
   min-height: clamp(36rem, 70vh, 52rem);
@@ -16,9 +16,11 @@
 
 .tile {
   position: relative;
-  border-radius: 0.45rem;
+  border-radius: 0.62rem;
   overflow: hidden;
-  background: #e8e4dc;
+  background: var(--surface-card-image-bg);
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .tileMedia {
@@ -26,6 +28,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.tile:hover .tileMedia {
+  transform: scale(1.02);
 }
 
 .badge {
@@ -37,9 +44,11 @@
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  border-radius: 0.35rem;
-  background: rgba(0, 0, 0, 0.38);
-  color: #fff;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--museum-green-deep) 50%, rgba(0, 0, 0, 0.4));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--museum-body-text);
+  backdrop-filter: blur(6px);
 }
 
 .brandTile {
@@ -51,14 +60,14 @@
   padding: 1rem;
   text-align: center;
   background: linear-gradient(160deg, var(--museum-green-deep) 0%, var(--museum-green) 100%);
-  color: #fff;
+  color: var(--museum-body-text);
   min-height: 100%;
 }
 
 .brandEmblem {
   width: clamp(3.5rem, 8vw, 5rem);
   height: auto;
-  color: #d4af37;
+  color: var(--cta-gold);
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
 }
 
@@ -80,24 +89,35 @@
   .grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: none;
-    grid-auto-rows: minmax(140px, auto);
+    grid-auto-rows: minmax(150px, auto);
+    min-height: 0;
   }
 
   .tile {
     grid-column: auto !important;
     grid-row: auto !important;
-    min-height: 160px;
+    min-height: 170px;
   }
 
   .tile[data-layout='norias'],
   .tile[data-layout='street'] {
     grid-column: 1 / -1;
-    min-height: 220px;
+    min-height: 230px;
   }
 }
 
 @media (max-width: 479px) {
+  .wrap {
+    padding-inline: 0.65rem;
+    padding-block: 1rem 1.5rem;
+  }
+
   .grid {
     grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .tile {
+    min-height: 190px;
   }
 }

@@ -1,14 +1,25 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import type { AppLocale, HomeHeroContent } from '../types/homeContent'
-import type { ProfileData, ProfilePost } from '../types/profile'
+import type { ProfileData, ProfilePost, ProfileProduct, ProfileMuseumItem, ProfileArticle, ProfileVideo } from '../types/profile'
 import { getHomeHeroContent } from '../services/homeContentService'
-import { getProfileData, getProfilePosts } from '../services/profileService'
+import { 
+  getProfileData, 
+  getProfilePosts, 
+  getProfileProducts, 
+  getProfileMuseumItems, 
+  getProfileArticles, 
+  getProfileVideos 
+} from '../services/profileService'
 import { Navbar } from '../components/home/Navbar'
 import { ThemeToggle } from '../components/home/ThemeToggle'
 import { ProfileHeader } from '../components/profile/ProfileHeader'
 import { ProfileTabs, type ProfileTabId } from '../components/profile/ProfileTabs'
 import { ProfilePostsGrid } from '../components/profile/ProfilePostsGrid'
+import { ProfileProductsGrid } from '../components/profile/ProfileProductsGrid'
+import { ProfileMuseumGrid } from '../components/profile/ProfileMuseumGrid'
+import { ProfileArticlesGrid } from '../components/profile/ProfileArticlesGrid'
+import { ProfileVideosGrid } from '../components/profile/ProfileVideosGrid'
 import styles from './ProfilePage.module.css'
 
 type Theme = 'light' | 'dark'
@@ -50,13 +61,23 @@ export function ProfilePage() {
   const [heroContent, setHeroContent] = useState<HomeHeroContent | null>(null)
   const [profileData, setProfileData] = useState<ProfileData | null>(null)
   const [profilePosts, setProfilePosts] = useState<ProfilePost[] | null>(null)
+  const [profileProducts, setProfileProducts] = useState<ProfileProduct[] | null>(null)
+  const [profileMuseumItems, setProfileMuseumItems] = useState<ProfileMuseumItem[] | null>(null)
+  const [profileArticles, setProfileArticles] = useState<ProfileArticle[] | null>(null)
+  const [profileVideos, setProfileVideos] = useState<ProfileVideo[] | null>(null)
   const [error, setError] = useState<string | null>(null)
   
   const [activeTab, setActiveTab] = useState<ProfileTabId>('posts')
 
   const isRtl = locale === 'ar'
   const a11y = A11Y[locale]
-  const pageReady = heroContent !== null && profileData !== null && profilePosts !== null
+  const pageReady = heroContent !== null && 
+    profileData !== null && 
+    profilePosts !== null && 
+    profileProducts !== null && 
+    profileMuseumItems !== null && 
+    profileArticles !== null && 
+    profileVideos !== null
 
   useEffect(() => {
     const root = document.documentElement
@@ -73,18 +94,30 @@ export function ProfilePage() {
     setHeroContent(null)
     setProfileData(null)
     setProfilePosts(null)
+    setProfileProducts(null)
+    setProfileMuseumItems(null)
+    setProfileArticles(null)
+    setProfileVideos(null)
     setError(null)
     
     Promise.all([
       getHomeHeroContent(locale),
       getProfileData(locale, username || ''),
-      getProfilePosts(locale, username || '')
+      getProfilePosts(locale, username || ''),
+      getProfileProducts(locale, username || ''),
+      getProfileMuseumItems(locale, username || ''),
+      getProfileArticles(locale, username || ''),
+      getProfileVideos(locale, username || '')
     ])
-      .then(([hero, profile, posts]) => {
+      .then(([hero, profile, posts, products, museum, articles, videos]) => {
         if (!cancelled) {
           setHeroContent(hero)
           setProfileData(profile)
           setProfilePosts(posts)
+          setProfileProducts(products)
+          setProfileMuseumItems(museum)
+          setProfileArticles(articles)
+          setProfileVideos(videos)
         }
       })
       .catch(() => {
@@ -114,7 +147,7 @@ export function ProfilePage() {
         </p>
       ) : null}
 
-      {pageReady && heroContent && profileData && profilePosts ? (
+      {pageReady && heroContent && profileData && profilePosts && profileProducts && profileMuseumItems && profileArticles && profileVideos ? (
         <>
           <div className={styles.topNavContainer}>
             <Navbar
@@ -142,11 +175,10 @@ export function ProfilePage() {
             <ProfileTabs activeTab={activeTab} onChangeTab={setActiveTab} locale={locale} />
             
             {activeTab === 'posts' && <ProfilePostsGrid posts={profilePosts} locale={locale} />}
-            {activeTab !== 'posts' && (
-              <div className={styles.emptyState}>
-                <p>{locale === 'ar' ? 'لا يوجد محتوى لعرضه.' : 'No content to show.'}</p>
-              </div>
-            )}
+            {activeTab === 'products' && <ProfileProductsGrid products={profileProducts} locale={locale} />}
+            {activeTab === 'museum' && <ProfileMuseumGrid items={profileMuseumItems} locale={locale} />}
+            {activeTab === 'articles' && <ProfileArticlesGrid articles={profileArticles} locale={locale} />}
+            {activeTab === 'videos' && <ProfileVideosGrid videos={profileVideos} locale={locale} />}
           </main>
         </>
       ) : (

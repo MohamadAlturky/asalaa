@@ -1,0 +1,52 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card, #1a1a1a);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color, #333);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover, #555);
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--bg-secondary, #222);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #fff);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.price {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary, #aaa);
+  font-weight: 500;
+}
