@@ -5,7 +5,7 @@ const DATA: Record<AppLocale, HomeHeroContent> = {
     brandName: 'أصالة',
     navLinks: [
       { href: '/explore-syria', label: 'اكتشف سوريا' },
-      { href: '/#museum', label: 'متحف أصالة' },
+      { href: '/museum', label: 'متحف أصالة' },
       { href: '/#heritage', label: 'من ذاكرة التراث' },
     ],
     hero: {
@@ -21,7 +21,7 @@ const DATA: Record<AppLocale, HomeHeroContent> = {
     brandName: 'Asala',
     navLinks: [
       { href: '/explore-syria', label: 'Discover Syria' },
-      { href: '/#museum', label: 'Asala Museum' },
+      { href: '/museum', label: 'Asala Museum' },
       { href: '/#heritage', label: 'From Heritage Memory' },
     ],
     hero: {

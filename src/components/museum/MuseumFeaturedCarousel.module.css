@@ -1,0 +1,144 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 56rem;
+  margin-inline: auto;
+  padding-inline: clamp(2.5rem, 6vw, 4rem);
+}
+
+.viewport {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.65rem;
+}
+
+.slide {
+  width: 100%;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface-card-image-bg);
+  border-radius: 0.65rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.32);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playBadge {
+  position: absolute;
+  top: clamp(0.6rem, 2vw, 0.85rem);
+  inset-inline-end: clamp(0.6rem, 2vw, 0.85rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+}
+
+.playBadgeLabel {
+  letter-spacing: 0.02em;
+}
+
+.captionOverlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: clamp(0.6rem, 2.5vw, 1rem) clamp(0.85rem, 3vw, 1.4rem);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  color: #fff;
+  text-align: start;
+}
+
+.captionTitle {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(1.15rem, 3vw, 1.75rem);
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.1rem, 4.5vw, 2.6rem);
+  height: clamp(2.1rem, 4.5vw, 2.6rem);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--museum-body-text);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.navBtn:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.navBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.prev {
+  inset-inline-start: clamp(0.25rem, 1.5vw, 0.6rem);
+}
+
+.next {
+  inset-inline-end: clamp(0.25rem, 1.5vw, 0.6rem);
+}
+
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[dir='rtl'] .chevron {
+  transform: scaleX(-1);
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.dotActive {
+  width: 1.2rem;
+  background: var(--cta-gold);
+}

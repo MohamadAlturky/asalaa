@@ -1,0 +1,102 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.scroller {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-block: 0.25rem 0.5rem;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-inline: clamp(3rem, 6vw, 4rem);
+}
+
+.card {
+  flex: 0 0 auto;
+  width: clamp(8rem, 16vw, 11rem);
+  scroll-snap-align: start;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0.55rem;
+  background: var(--surface-card-image-bg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2rem, 4vw, 2.4rem);
+  height: clamp(2rem, 4vw, 2.4rem);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--museum-body-text);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.navBtn:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.navBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.prev {
+  inset-inline-start: clamp(0.25rem, 1.5vw, 0.6rem);
+}
+
+.next {
+  inset-inline-end: clamp(0.25rem, 1.5vw, 0.6rem);
+}
+
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[dir='rtl'] .chevron {
+  transform: scaleX(-1);
+}

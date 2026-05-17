@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { AsalaMuseumPage } from './pages/AsalaMuseumPage'
 import { ExploreSyriaPage } from './pages/ExploreSyriaPage'
 import { HomePage } from './pages/HomePage'
 import { ProductDetailPage } from './pages/ProductDetailPage'
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/explore-syria" element={<ExploreSyriaPage />} />
+        <Route path="/museum" element={<AsalaMuseumPage />} />
         <Route path="/products" element={<ProductsIndexPage />} />
         <Route path="/products/:slug" element={<ProductDetailPage />} />
         <Route path="/profile/:username" element={<ProfilePage />} />
