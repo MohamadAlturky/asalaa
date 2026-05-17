@@ -1,0 +1,147 @@
+.wrapper {
+  position: relative;
+  max-width: 64rem;
+  margin-inline: auto;
+  margin-top: 2rem;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+.coverWrapper {
+  position: relative;
+  width: 100%;
+  height: clamp(12rem, 25vw, 18rem);
+  border-radius: 1rem;
+  overflow: visible; /* To allow stats box to overflow */
+  background: var(--surface-card-image-bg);
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* Stats Box */
+.statsBox {
+  position: absolute;
+  inset-inline-start: 2rem;
+  bottom: -1.5rem;
+  display: flex;
+  align-items: center;
+  background: var(--cta-gold);
+  color: var(--museum-cta-on-gold);
+  border-radius: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.statValue {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.statIcon {
+  opacity: 0.9;
+}
+
+.statDivider {
+  width: 1px;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  margin-inline: 1.25rem;
+}
+
+/* User Info Row */
+.infoRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: -3.5rem; /* pull avatar up */
+  padding-inline-end: 2rem; /* offset for avatar */
+  margin-bottom: 2rem;
+  z-index: 5;
+  position: relative;
+}
+
+.avatarWrapper {
+  flex-shrink: 0;
+  width: clamp(6rem, 15vw, 8rem);
+  height: clamp(6rem, 15vw, 8rem);
+  border-radius: 50%;
+  background: var(--surface-card);
+  padding: 0.35rem; /* space for the ring */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--surface-card-image-bg);
+}
+
+.detailsBlock {
+  margin-top: 4.5rem;
+  margin-inline-start: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.name {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.followBtn {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--cta-gold);
+  background: transparent;
+  border: 1px solid var(--cta-gold);
+  padding: 0.35rem 1.25rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.followBtn:hover {
+  background: rgba(212, 181, 106, 0.1);
+}
+
+.followers {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}

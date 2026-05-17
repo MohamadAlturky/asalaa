@@ -3,6 +3,8 @@ import { ExploreSyriaPage } from './pages/ExploreSyriaPage'
 import { HomePage } from './pages/HomePage'
 import { ProductDetailPage } from './pages/ProductDetailPage'
 import { ProductsIndexPage } from './pages/ProductsIndexPage'
+import { ProfilePage } from './pages/ProfilePage'
+import { ProvidersPage } from './pages/ProvidersPage'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Route path="/explore-syria" element={<ExploreSyriaPage />} />
         <Route path="/products" element={<ProductsIndexPage />} />
         <Route path="/products/:slug" element={<ProductDetailPage />} />
+        <Route path="/profile/:username" element={<ProfilePage />} />
+        <Route path="/providers" element={<ProvidersPage />} />
       </Routes>
     </BrowserRouter>
   )
