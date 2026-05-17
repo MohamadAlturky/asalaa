@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 560" width="480" height="560" aria-hidden="true">
+  <defs>
+    <linearGradient id="stone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8a7a62"/>
+      <stop offset="100%" stop-color="#4a4034"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="560" fill="transparent"/>
+  <ellipse cx="240" cy="520" rx="160" ry="28" fill="#000" opacity="0.2"/>
+  <path fill="url(#stone)" d="M120 480 Q100 380 130 260 Q115 140 240 100 Q365 140 350 260 Q380 380 360 480 Q300 520 240 520 Q180 520 120 480Z"/>
+  <ellipse cx="240" cy="210" rx="95" ry="115" fill="url(#stone)"/>
+  <path fill="#3d352c" d="M175 200 Q240 250 305 200 Q295 320 240 340 Q185 320 175 200Z" opacity="0.35"/>
+</svg>

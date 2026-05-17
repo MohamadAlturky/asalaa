@@ -1,0 +1,131 @@
+.section {
+  --museum-green: #0d3327;
+  --museum-green-deep: #0a281f;
+  position: relative;
+  background: linear-gradient(180deg, var(--museum-green) 0%, var(--museum-green-deep) 100%);
+  color: #fff;
+  overflow: clip;
+}
+
+.pattern {
+  position: absolute;
+  inset: -15%;
+  opacity: 0.09;
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+.copy {
+  text-align: start;
+}
+
+.heading {
+  margin: 0 0 1.5rem;
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  max-width: 22rem;
+}
+
+.stores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.storeBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 11.5rem;
+  padding: 0.55rem 1rem 0.55rem 0.85rem;
+  border-radius: 0.45rem;
+  background: #0a0a0a;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.storeBtn:hover {
+  filter: brightness(1.12);
+}
+
+.storeBtn:focus-visible {
+  outline: 2px solid #d4b56a;
+  outline-offset: 2px;
+}
+
+.storeSmall {
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.88;
+  line-height: 1.2;
+}
+
+.storeStrong {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone {
+  display: block;
+  width: min(100%, 15rem);
+  height: auto;
+  transform: rotate(-6deg);
+  filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.4));
+}
+
+@media (max-width: 720px) {
+  .inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .copy {
+    text-align: center;
+    justify-items: center;
+  }
+
+  .heading {
+    margin-inline: auto;
+  }
+
+  .stores {
+    justify-content: center;
+  }
+
+  .storeBtn {
+    align-items: center;
+  }
+
+  .phone {
+    transform: rotate(-4deg);
+    max-width: 12rem;
+  }
+}

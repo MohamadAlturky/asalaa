@@ -1,0 +1,113 @@
+.section {
+  --ink: #0d3327;
+  --ink-hover: #0a281f;
+  background: #ffffff;
+  color: #1a1f1c;
+  padding-block: clamp(2.25rem, 5vw, 3.75rem);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+.videoWrap {
+  position: relative;
+  border-radius: 0.75rem;
+  background: #e4e4e4;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.playBtn {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: clamp(3.5rem, 10vw, 4.75rem);
+  height: clamp(3.5rem, 10vw, 4.75rem);
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.playBtn:hover {
+  transform: scale(1.04);
+  filter: brightness(1.02);
+}
+
+.playBtn:focus-visible {
+  outline: 2px solid var(--color-focus-ring, #8a7224);
+  outline-offset: 3px;
+}
+
+.playIcon {
+  display: block;
+  width: 0;
+  height: 0;
+  margin-inline-start: 0.2rem;
+  border-style: solid;
+  border-width: 0.65rem 0 0.65rem 1.1rem;
+  border-color: transparent transparent transparent var(--ink);
+}
+
+.copy {
+  text-align: start;
+}
+
+.heading {
+  margin: 0 0 1.5rem;
+  font-weight: 800;
+  font-size: clamp(1.65rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.85rem;
+  border-radius: 0.5rem;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.cta:hover {
+  background: var(--ink-hover);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--color-focus-ring, #8a7224);
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .copy {
+    text-align: center;
+  }
+
+  .heading {
+    margin-bottom: 1.25rem;
+  }
+}

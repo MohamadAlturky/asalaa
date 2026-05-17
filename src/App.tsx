@@ -6,6 +6,8 @@ import { getHomeExploreContent } from './services/homeExploreService'
 import { Navbar } from './components/home/Navbar'
 import { Hero } from './components/home/Hero'
 import { HomeDiscoverSection } from './components/home/HomeDiscoverSection'
+import { HomeMockupSections } from './components/home/HomeMockupSections'
+import { HomeExtendedSections } from './components/home/HomeExtendedSections'
 import styles from './App.module.css'
 
 type Theme = 'light' | 'dark'
@@ -114,6 +116,8 @@ function App() {
             />
             <Hero line1={heroContent.hero.line1} line2={heroContent.hero.line2} />
             <HomeDiscoverSection content={exploreContent} categoriesNavLabel={a11y.categoryShortcuts} />
+            <HomeMockupSections locale={locale} />
+            <HomeExtendedSections locale={locale} />
           </>
         ) : (
           <div className={styles.skeleton} aria-busy="true" aria-live="polite">
