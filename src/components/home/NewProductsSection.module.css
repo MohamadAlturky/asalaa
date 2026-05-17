@@ -1,9 +1,9 @@
 .section {
-  --ink: #0d3327;
+  --ink: var(--surface-ink);
   --tag-bg: #f0c14d;
   --tag-text: #1a1408;
-  background: #ffffff;
-  color: #1a1f1c;
+  background: var(--surface-page);
+  color: var(--surface-ink);
   padding-block: clamp(2.25rem, 5vw, 3.5rem);
 }
 
@@ -69,8 +69,9 @@
 .card {
   margin: 0;
   border-radius: 0.75rem;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
-  background: #fff;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18);
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -105,7 +106,7 @@
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
-  background: #e8e4dc;
+  background: var(--surface-card-image-bg);
 }
 
 .image {
@@ -121,10 +122,10 @@
   inset-inline-start: 0.5rem;
   width: 2.25rem;
   height: 2.25rem;
-  border: 1.5px solid rgba(26, 31, 28, 0.35);
+  border: 1.5px solid var(--surface-border);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--ink);
+  background: var(--surface-card);
+  color: var(--surface-ink);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -134,8 +135,9 @@
 }
 
 .wishlistBtn:hover {
-  background: #fff;
-  border-color: var(--ink);
+  background: var(--surface-card);
+  border-color: var(--surface-ink);
+  filter: brightness(1.05);
 }
 
 .wishlistBtn[aria-pressed='true'] {
@@ -175,13 +177,13 @@
   font-weight: 700;
   font-size: 0.95rem;
   line-height: 1.35;
-  color: #1a1f1c;
+  color: var(--surface-ink);
 }
 
 .creator {
   margin: 0 0 0.5rem;
   font-size: 0.82rem;
-  color: rgba(26, 31, 28, 0.65);
+  color: var(--surface-muted);
 }
 
 .price {

@@ -2,34 +2,35 @@
   color-scheme: light dark;
   --font-sans: 'Cairo', system-ui, sans-serif;
 
-  --color-page-bg: #0f1412;
-  --color-text: #f5f5f0;
-  --color-text-muted: rgba(245, 245, 240, 0.72);
+  /* Page + global text (dark defaults; warm dark brown per mockup) */
+  --color-page-bg: #2a2724;
+  --color-text: #f5f1e8;
+  --color-text-muted: rgba(245, 241, 232, 0.72);
   --color-nav-link-hover: #e8d89a;
-  --color-toggle-track: rgba(245, 245, 240, 0.22);
+  --color-toggle-track: rgba(245, 241, 232, 0.22);
   --color-toggle-thumb: #f0e6d2;
-  --color-panel-bg: rgba(18, 24, 21, 0.94);
+  --color-panel-bg: rgba(36, 33, 30, 0.96);
   --color-focus-ring: #c9a227;
 
-  /* Hero (full-bleed; tokens flip with theme) */
-  --hero-section-bg: #1a2c26;
-  --hero-overlay-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.58) 100%);
+  /* Hero (deep green in both themes) */
+  --hero-section-bg: #0d3327;
+  --hero-overlay-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.6) 100%);
   --hero-text: #ffffff;
   --hero-line-solid-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
   --hero-line-hollow-shadow: 0 6px 36px rgba(0, 0, 0, 0.35);
   --hero-line-hollow-stroke: rgba(255, 255, 255, 0.92);
   --hero-line-hollow-fallback: rgba(255, 255, 255, 0.12);
 
-  /* Navbar while over the hero */
+  /* Navbar while over the hero (white on green in both themes) */
   --nav-on-hero-text: #ffffff;
   --nav-on-hero-link: rgba(255, 255, 255, 0.92);
   --nav-on-hero-menu-bg: rgba(0, 0, 0, 0.18);
   --nav-on-hero-menu-bg-hover: rgba(0, 0, 0, 0.28);
   --nav-on-hero-avatar-border: rgba(255, 255, 255, 0.35);
 
-  --skeleton-gradient: linear-gradient(180deg, #1a2c26 0%, #0f1412 100%);
+  --skeleton-gradient: linear-gradient(180deg, #0d3327 0%, #2a2724 100%);
 
-  /* Museum-style bands + app download */
+  /* Museum-style bands + app download (deep green in both themes) */
   --museum-green: #0d3327;
   --museum-green-deep: #0a281f;
   --museum-body-text: #ffffff;
@@ -43,7 +44,15 @@
   --app-store-btn-border: rgba(255, 255, 255, 0.12);
   --app-store-btn-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 
-  /* Footer */
+  /* Surface tokens for sections + cards (flip between themes) */
+  --surface-page: #2a2724;
+  --surface-card: #3a3631;
+  --surface-card-image-bg: #4a4540;
+  --surface-ink: #f5f1e8;
+  --surface-muted: rgba(245, 241, 232, 0.7);
+  --surface-border: rgba(245, 241, 232, 0.12);
+
+  /* Footer (dark in both themes per design) */
   --footer-bg: #000000;
   --footer-text: #f5f5f0;
   --footer-social: #f5f5f0;
@@ -51,7 +60,7 @@
 
 html[data-theme='light'] {
   color-scheme: light;
-  --color-page-bg: #f4f1ea;
+  --color-page-bg: #ffffff;
   --color-text: #1a1f1c;
   --color-text-muted: rgba(26, 31, 28, 0.72);
   --color-nav-link-hover: #6b5a1e;
@@ -60,36 +69,48 @@ html[data-theme='light'] {
   --color-panel-bg: rgba(255, 252, 246, 0.96);
   --color-focus-ring: #8a7224;
 
-  --hero-section-bg: #d4cfc4;
-  --hero-overlay-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(26, 44, 38, 0.38) 100%);
-  --hero-text: #1a1f1c;
-  --hero-line-solid-shadow: 0 6px 28px rgba(0, 0, 0, 0.22);
-  --hero-line-hollow-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-  --hero-line-hollow-stroke: rgba(26, 31, 28, 0.78);
-  --hero-line-hollow-fallback: rgba(26, 31, 28, 0.14);
+  /* Hero stays deep green in light theme too */
+  --hero-section-bg: #0d3327;
+  --hero-overlay-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.6) 100%);
+  --hero-text: #ffffff;
+  --hero-line-solid-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+  --hero-line-hollow-shadow: 0 6px 36px rgba(0, 0, 0, 0.35);
+  --hero-line-hollow-stroke: rgba(255, 255, 255, 0.92);
+  --hero-line-hollow-fallback: rgba(255, 255, 255, 0.12);
 
-  --nav-on-hero-text: #1a1f1c;
-  --nav-on-hero-link: rgba(26, 31, 28, 0.9);
-  --nav-on-hero-menu-bg: rgba(255, 255, 255, 0.42);
-  --nav-on-hero-menu-bg-hover: rgba(255, 255, 255, 0.58);
-  --nav-on-hero-avatar-border: rgba(26, 31, 28, 0.28);
+  /* Navbar over hero stays white */
+  --nav-on-hero-text: #ffffff;
+  --nav-on-hero-link: rgba(255, 255, 255, 0.92);
+  --nav-on-hero-menu-bg: rgba(0, 0, 0, 0.18);
+  --nav-on-hero-menu-bg-hover: rgba(0, 0, 0, 0.28);
+  --nav-on-hero-avatar-border: rgba(255, 255, 255, 0.35);
 
-  --skeleton-gradient: linear-gradient(180deg, #d4cfc4 0%, #f4f1ea 100%);
+  --skeleton-gradient: linear-gradient(180deg, #f1ede3 0%, #ffffff 100%);
 
-  --museum-green: #c2d6ce;
-  --museum-green-deep: #a9c4b9;
-  --museum-body-text: #1a1f1c;
-  --museum-muted-text: rgba(26, 31, 28, 0.78);
+  /* Museum band stays deep green in light theme */
+  --museum-green: #0d3327;
+  --museum-green-deep: #0a281f;
+  --museum-body-text: #ffffff;
+  --museum-muted-text: rgba(255, 255, 255, 0.9);
   --museum-cta-on-gold: #1a1408;
 
-  --app-store-btn-bg: #f4f1ea;
+  --app-store-btn-bg: #ffffff;
   --app-store-btn-text: #1a1f1c;
   --app-store-btn-border: rgba(26, 31, 28, 0.18);
   --app-store-btn-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 
-  --footer-bg: #e8e4dc;
-  --footer-text: #1a1f1c;
-  --footer-social: #1a1f1c;
+  /* Surface tokens for sections + cards (light) */
+  --surface-page: #ffffff;
+  --surface-card: #ffffff;
+  --surface-card-image-bg: #e8e4dc;
+  --surface-ink: #0d3327;
+  --surface-muted: rgba(26, 31, 28, 0.68);
+  --surface-border: rgba(26, 31, 28, 0.1);
+
+  /* Footer stays dark in light theme per design */
+  --footer-bg: #000000;
+  --footer-text: #f5f5f0;
+  --footer-social: #f5f5f0;
 }
 
 html[data-theme='dark'] {

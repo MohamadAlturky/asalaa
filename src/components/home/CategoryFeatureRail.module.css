@@ -1,5 +1,5 @@
 .nav {
-  background: #ffffff;
+  background: var(--surface-page);
   padding-block: clamp(1.5rem, 4vw, 2.25rem);
   padding-inline: clamp(1rem, 4vw, 2.5rem);
 }
@@ -29,11 +29,11 @@
   gap: 0.65rem;
   text-align: center;
   text-decoration: none;
-  color: #1f2422;
+  color: var(--surface-ink);
 }
 
 .link:hover .label {
-  color: #0d3327;
+  color: var(--color-nav-link-hover);
 }
 
 .iconWrap {
@@ -54,7 +54,7 @@
   font-weight: 600;
   font-size: clamp(0.8rem, 2.1vw, 0.95rem);
   line-height: 1.35;
-  color: #2a312e;
+  color: var(--surface-muted);
 }
 
 @media (max-width: 520px) {
