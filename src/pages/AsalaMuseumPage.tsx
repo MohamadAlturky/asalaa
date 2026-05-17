@@ -71,6 +71,7 @@ export function AsalaMuseumPage() {
 
   useEffect(() => {
     let cancelled = false
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- clear stale content while refetching (same pattern as ExploreSyriaPage)
     setHeroContent(null)
     setPageContent(null)
     setError(null)
