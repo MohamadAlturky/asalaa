@@ -1,0 +1,230 @@
+.header {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  z-index: 20;
+  padding-block: 1rem;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  color: #fff;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 120rem;
+  margin-inline: auto;
+}
+
+.start {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.75rem);
+  min-width: 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.brandMark {
+  display: inline-flex;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+.brandName {
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  letter-spacing: 0.02em;
+}
+
+.desktopNav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    display: block;
+  }
+}
+
+.desktopList {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--color-nav-link-hover);
+}
+
+.end {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.avatar {
+  display: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .avatar {
+    display: block;
+  }
+}
+
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.18);
+  color: #fff;
+  cursor: pointer;
+}
+
+.menuButton:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+@media (min-width: 768px) {
+  .menuButton {
+    display: none;
+  }
+}
+
+.menuIcon {
+  display: inline-flex;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .backdrop {
+    display: none;
+  }
+}
+
+.drawer {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-end: 0;
+  z-index: 26;
+  width: min(18rem, 88vw);
+  padding: 1rem 1.1rem 1.5rem;
+  background: var(--color-panel-bg);
+  color: var(--color-text);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.35);
+  transform: none;
+  transition: transform 0.22s ease;
+}
+
+.drawerClosed {
+  pointer-events: none;
+}
+
+.drawerLtr.drawerClosed {
+  transform: translateX(110%);
+}
+
+.drawerRtl.drawerClosed {
+  transform: translateX(-110%);
+}
+
+@media (min-width: 768px) {
+  .drawer {
+    display: none;
+  }
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.drawerTitle {
+  font-weight: 800;
+}
+
+.drawerClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-toggle-track);
+  color: inherit;
+  cursor: pointer;
+}
+
+.drawerList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.drawerLink {
+  display: block;
+  padding: 0.75rem 0.65rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+
+.drawerLink:hover {
+  background: var(--color-toggle-track);
+}

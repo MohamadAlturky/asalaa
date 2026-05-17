@@ -1,0 +1,41 @@
+.track {
+  display: flex;
+  align-items: center;
+  width: 52px;
+  height: 28px;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--color-toggle-track);
+}
+
+.thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-toggle-thumb);
+  color: #9a7b1a;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  transition: margin-inline-start 0.2s ease;
+}
+
+.thumbAtEnd {
+  margin-inline-start: auto;
+}
+
+.button {
+  display: inline-flex;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.button:focus:not(:focus-visible) {
+  outline: none;
+}
