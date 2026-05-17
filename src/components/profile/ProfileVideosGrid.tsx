@@ -10,13 +10,17 @@ type ProfileVideosGridProps = {
 
 export function ProfileVideosGrid({ videos, locale }: ProfileVideosGridProps) {
   if (videos.length === 0) {
-    return null
+    return (
+      <p className={styles.empty} role="status">
+        {locale === 'ar' ? 'لا توجد فيديوهات بعد.' : 'No videos yet.'}
+      </p>
+    )
   }
 
   return (
     <div className={styles.grid}>
-      {videos.map(video => (
-        <ProfileVideoCard key={video.id} video={video} locale={locale} />
+      {videos.map((video) => (
+        <ProfileVideoCard key={video.id} video={video} />
       ))}
     </div>
   )

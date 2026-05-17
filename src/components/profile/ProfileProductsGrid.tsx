@@ -10,13 +10,17 @@ type ProfileProductsGridProps = {
 
 export function ProfileProductsGrid({ products, locale }: ProfileProductsGridProps) {
   if (products.length === 0) {
-    return null
+    return (
+      <p className={styles.empty} role="status">
+        {locale === 'ar' ? 'لا توجد منتجات بعد.' : 'No products yet.'}
+      </p>
+    )
   }
 
   return (
     <div className={styles.grid}>
-      {products.map(product => (
-        <ProfileProductCard key={product.id} product={product} locale={locale} />
+      {products.map((product) => (
+        <ProfileProductCard key={product.id} product={product} />
       ))}
     </div>
   )

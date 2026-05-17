@@ -36,7 +36,7 @@ export function ProfilePostCard({ post, locale }: ProfilePostCardProps) {
       <div className={styles.content}>
         <p className={styles.text}>
           {post.textSnippet}{' '}
-          <button type="button" className={styles.readMoreBtn}>
+          <button type="button" className={styles.readMoreBtn} onClick={() => undefined}>
             {strings.readMore}
           </button>
         </p>

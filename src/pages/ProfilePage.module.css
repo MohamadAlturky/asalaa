@@ -3,6 +3,7 @@
   transition: opacity 0.2s ease;
   display: flex;
   flex-direction: column;
+  background: var(--color-page-bg);
 }
 
 .root[data-loading='true'] {
@@ -13,11 +14,46 @@
   opacity: 1;
 }
 
-.error {
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: clamp(2rem, 8vw, 4rem) 1.25rem;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.errorMessage {
   margin: 0;
   padding: 1rem 1.25rem;
-  background: #5c1a1a;
+  background: var(--color-danger-bg, #5c1a1a);
   color: #fff;
+  border-radius: 0.5rem;
+  max-width: 32rem;
+}
+
+.retryBtn {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--cta-gold);
+  background: transparent;
+  border: 1px solid var(--cta-gold);
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.retryBtn:hover {
+  background: rgba(212, 181, 106, 0.1);
+}
+
+.retryBtn:focus-visible {
+  outline: 2px solid var(--cta-gold);
+  outline-offset: 2px;
 }
 
 .skeleton {
@@ -37,6 +73,7 @@
   border-radius: 999px;
   background: var(--color-panel-bg);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(8px);
 }
 
 .topNavContainer {
@@ -48,4 +85,20 @@
 .main {
   flex: 1;
   background: var(--color-page-bg);
+}
+
+.tabPanel {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  padding-block-end: 3rem;
+}
+
+.tabPanelLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
 }

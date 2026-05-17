@@ -10,12 +10,16 @@ type ProfilePostsGridProps = {
 
 export function ProfilePostsGrid({ posts, locale }: ProfilePostsGridProps) {
   if (posts.length === 0) {
-    return null
+    return (
+      <p className={styles.empty} role="status">
+        {locale === 'ar' ? 'لا توجد منشورات بعد.' : 'No posts yet.'}
+      </p>
+    )
   }
 
   return (
     <div className={styles.grid}>
-      {posts.map(post => (
+      {posts.map((post) => (
         <ProfilePostCard key={post.id} post={post} locale={locale} />
       ))}
     </div>

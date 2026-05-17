@@ -1,13 +1,11 @@
-import type { AppLocale } from '../../types/homeContent'
 import type { ProfileProduct } from '../../types/profile'
 import styles from './ProfileProductCard.module.css'
 
 type ProfileProductCardProps = {
   product: ProfileProduct
-  locale: AppLocale
 }
 
-export function ProfileProductCard({ product, locale }: ProfileProductCardProps) {
+export function ProfileProductCard({ product }: ProfileProductCardProps) {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>

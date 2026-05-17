@@ -10,13 +10,17 @@ type ProfileMuseumGridProps = {
 
 export function ProfileMuseumGrid({ items, locale }: ProfileMuseumGridProps) {
   if (items.length === 0) {
-    return null
+    return (
+      <p className={styles.empty} role="status">
+        {locale === 'ar' ? 'المتحف فارغ بعد.' : 'The museum is empty.'}
+      </p>
+    )
   }
 
   return (
     <div className={styles.grid}>
-      {items.map(item => (
-        <ProfileMuseumItemCard key={item.id} item={item} locale={locale} />
+      {items.map((item) => (
+        <ProfileMuseumItemCard key={item.id} item={item} />
       ))}
     </div>
   )

@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react'
+import type { KeyboardEvent } from 'react'
 import type { AppLocale } from '../../types/homeContent'
 import styles from './ProfileTabs.module.css'
 
@@ -7,9 +9,27 @@ type ProfileTabsProps = {
   activeTab: ProfileTabId
   onChangeTab: (tab: ProfileTabId) => void
   locale: AppLocale
+  tablistAriaLabel: string
+  sortDisabledLabel: string
 }
 
 const TABS: ProfileTabId[] = ['posts', 'products', 'museum', 'articles', 'videos']
+
+export const PROFILE_TAB_BUTTON_ID: Record<ProfileTabId, string> = {
+  posts: 'profile-tab-posts',
+  products: 'profile-tab-products',
+  museum: 'profile-tab-museum',
+  articles: 'profile-tab-articles',
+  videos: 'profile-tab-videos',
+}
+
+export const PROFILE_TAB_PANEL_ID: Record<ProfileTabId, string> = {
+  posts: 'profile-panel-posts',
+  products: 'profile-panel-products',
+  museum: 'profile-panel-museum',
+  articles: 'profile-panel-articles',
+  videos: 'profile-panel-videos',
+}
 
 function getTabStrings(locale: AppLocale) {
   if (locale === 'ar') {
@@ -32,20 +52,80 @@ function getTabStrings(locale: AppLocale) {
   }
 }
 
-export function ProfileTabs({ activeTab, onChangeTab, locale }: ProfileTabsProps) {
+export function ProfileTabs({
+  activeTab,
+  onChangeTab,
+  locale,
+  tablistAriaLabel,
+  sortDisabledLabel,
+}: ProfileTabsProps) {
   const strings = getTabStrings(locale)
+  const buttonRefs = useRef<Record<ProfileTabId, HTMLButtonElement | null>>({
+    posts: null,
+    products: null,
+    museum: null,
+    articles: null,
+    videos: null,
+  })
+  const shouldFocusActiveRef = useRef(false)
+
+  useEffect(() => {
+    if (shouldFocusActiveRef.current) {
+      buttonRefs.current[activeTab]?.focus()
+      shouldFocusActiveRef.current = false
+    }
+  }, [activeTab])
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    const activeIndex = TABS.indexOf(activeTab)
+    const isRtl = typeof document !== 'undefined' && document.documentElement.dir === 'rtl'
+    let nextIndex: number | null = null
+
+    switch (event.key) {
+      case 'ArrowRight':
+        nextIndex = isRtl ? activeIndex - 1 : activeIndex + 1
+        break
+      case 'ArrowLeft':
+        nextIndex = isRtl ? activeIndex + 1 : activeIndex - 1
+        break
+      case 'Home':
+        nextIndex = 0
+        break
+      case 'End':
+        nextIndex = TABS.length - 1
+        break
+      default:
+        return
+    }
+
+    if (nextIndex === null) return
+    const wrapped = (nextIndex + TABS.length) % TABS.length
+    event.preventDefault()
+    shouldFocusActiveRef.current = true
+    onChangeTab(TABS[wrapped])
+  }
 
   return (
     <div className={styles.container}>
-      <div className={styles.tabsRow}>
+      <div
+        role="tablist"
+        aria-label={tablistAriaLabel}
+        className={styles.tabsRow}
+        onKeyDown={handleKeyDown}
+      >
         {TABS.map((tab) => {
           const isActive = tab === activeTab
           return (
             <button
               key={tab}
+              ref={(el) => {
+                buttonRefs.current[tab] = el
+              }}
               type="button"
               role="tab"
+              id={PROFILE_TAB_BUTTON_ID[tab]}
               aria-selected={isActive}
+              aria-controls={PROFILE_TAB_PANEL_ID[tab]}
               tabIndex={isActive ? 0 : -1}
               onClick={() => onChangeTab(tab)}
               className={`${styles.tab} ${isActive ? styles.tabActive : styles.tabInactive}`}
@@ -61,15 +141,20 @@ export function ProfileTabs({ activeTab, onChangeTab, locale }: ProfileTabsProps
         })}
       </div>
 
-      <div className={styles.sortRow}>
+      <button
+        type="button"
+        className={styles.sortBtn}
+        disabled
+        aria-disabled="true"
+        title={sortDisabledLabel}
+      >
         <span className={styles.sortLabel}>{strings.sortBy}</span>
         <IconChevronDown className={styles.sortIcon} />
-      </div>
+      </button>
     </div>
   )
 }
 
-// Minimal Icons replicating the mockup
 function IconPosts({ className }: { className?: string }) {
   return (
     <svg className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>

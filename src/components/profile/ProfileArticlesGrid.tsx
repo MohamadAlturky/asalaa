@@ -10,13 +10,17 @@ type ProfileArticlesGridProps = {
 
 export function ProfileArticlesGrid({ articles, locale }: ProfileArticlesGridProps) {
   if (articles.length === 0) {
-    return null
+    return (
+      <p className={styles.empty} role="status">
+        {locale === 'ar' ? 'لا توجد مقالات بعد.' : 'No articles yet.'}
+      </p>
+    )
   }
 
   return (
     <div className={styles.grid}>
-      {articles.map(article => (
-        <ProfileArticleCard key={article.id} article={article} locale={locale} />
+      {articles.map((article) => (
+        <ProfileArticleCard key={article.id} article={article} />
       ))}
     </div>
   )

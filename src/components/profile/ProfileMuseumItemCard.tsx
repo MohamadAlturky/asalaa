@@ -1,13 +1,11 @@
-import type { AppLocale } from '../../types/homeContent'
 import type { ProfileMuseumItem } from '../../types/profile'
 import styles from './ProfileMuseumItemCard.module.css'
 
 type ProfileMuseumItemCardProps = {
   item: ProfileMuseumItem
-  locale: AppLocale
 }
 
-export function ProfileMuseumItemCard({ item, locale }: ProfileMuseumItemCardProps) {
+export function ProfileMuseumItemCard({ item }: ProfileMuseumItemCardProps) {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
