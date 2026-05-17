@@ -14,39 +14,7 @@ export type DiscoverBannerContent = {
   imageAlt: string
 }
 
-export type HeritageCardItem = {
-  id: string
-  title: string
-  excerpt: string
-  authorName: string
-  timeLabel: string
-  imageSrc: string
-  imageAlt: string
-  authorAvatarSrc?: string
-}
-
-export type HeritageSectionContent = {
-  title: string
-  viewAllLabel: string
-  viewAllHref: string
-  cards: HeritageCardItem[]
-}
-
-export type AppPromoContent = {
-  heading: string
-  mockupSrc: string
-  mockupAlt: string
-  appStoreHref: string
-  playStoreHref: string
-  appStoreBadgeSrc: string
-  appStoreBadgeAlt: string
-  playStoreBadgeSrc: string
-  playStoreBadgeAlt: string
-}
-
 export type HomeExploreContent = {
   categories: CategoryFeatureItem[]
   banner: DiscoverBannerContent
-  heritage: HeritageSectionContent
-  appPromo: AppPromoContent
 }

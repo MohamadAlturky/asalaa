@@ -7,7 +7,7 @@ type DiscoverSyriaBannerProps = {
 
 export function DiscoverSyriaBanner({ banner }: DiscoverSyriaBannerProps) {
   return (
-    <section className={styles.section} id="discover" aria-labelledby="discover-syria-heading">
+    <section className={styles.section} aria-labelledby="discover-syria-heading">
       <div className={styles.bg} aria-hidden />
       <div className={styles.inner}>
         <div className={styles.copy}>

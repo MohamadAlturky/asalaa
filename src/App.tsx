@@ -4,8 +4,6 @@ import type { HomeExploreContent } from './types/homeExplore'
 import { getHomeHeroContent } from './services/homeContentService'
 import { getHomeExploreContent } from './services/homeExploreService'
 import { Navbar } from './components/home/Navbar'
-import { AppDownloadSection } from './components/home/AppDownloadSection'
-import { HeritageMemorySection } from './components/home/HeritageMemorySection'
 import { Hero } from './components/home/Hero'
 import { HomeDiscoverSection } from './components/home/HomeDiscoverSection'
 import styles from './App.module.css'
@@ -114,9 +112,7 @@ function App() {
               languageMenuAriaLabel={a11y.languageMenu}
               isRtl={isRtl}
             />
-            <Hero hero={heroContent.hero} />
-            <HeritageMemorySection content={exploreContent.heritage} isRtl={isRtl} />
-            <AppDownloadSection content={exploreContent.appPromo} />
+            <Hero line1={heroContent.hero.line1} line2={heroContent.hero.line2} />
             <HomeDiscoverSection content={exploreContent} categoriesNavLabel={a11y.categoryShortcuts} />
           </>
         ) : (

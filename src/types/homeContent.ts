@@ -5,20 +5,12 @@ export type NavLinkItem = {
   label: string
 }
 
-export type MuseumHeroContent = {
-  topStripSrc: string
-  topStripAlt: string
-  title: string
-  taglines: string[]
-  ctaLabel: string
-  ctaHref: string
-  bustSrc: string
-  bustAlt: string
-}
-
 export type HomeHeroContent = {
   brandName: string
   navLinks: NavLinkItem[]
-  hero: MuseumHeroContent
+  hero: {
+    line1: string
+    line2: string
+  }
   languageOptions: { locale: AppLocale; label: string }[]
 }
