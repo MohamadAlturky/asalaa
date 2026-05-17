@@ -1,9 +1,7 @@
 .section {
-  --museum-green: #0d3327;
-  --museum-green-deep: #0a281f;
   position: relative;
   background: linear-gradient(180deg, var(--museum-green) 0%, var(--museum-green-deep) 100%);
-  color: #fff;
+  color: var(--museum-body-text);
   overflow: clip;
 }
 
@@ -55,11 +53,11 @@
   min-width: 11.5rem;
   padding: 0.55rem 1rem 0.55rem 0.85rem;
   border-radius: 0.45rem;
-  background: #0a0a0a;
-  color: #fff;
+  background: var(--app-store-btn-bg);
+  color: var(--app-store-btn-text);
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--app-store-btn-border);
+  box-shadow: var(--app-store-btn-shadow);
   transition: filter 0.15s ease, transform 0.15s ease;
 }
 
@@ -68,7 +66,7 @@
 }
 
 .storeBtn:focus-visible {
-  outline: 2px solid #d4b56a;
+  outline: 2px solid var(--cta-gold);
   outline-offset: 2px;
 }
 

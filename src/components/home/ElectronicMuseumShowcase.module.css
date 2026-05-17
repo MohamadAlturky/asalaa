@@ -1,8 +1,5 @@
 .section {
-  --museum-green: #0d3327;
-  --museum-green-deep: #0a281f;
-  --cta-gold: #d4b56a;
-  --cta-gold-hover: #e0c77e;
+  margin: 0;
 }
 
 .strip {
@@ -23,7 +20,7 @@
 .body {
   position: relative;
   background: linear-gradient(180deg, var(--museum-green) 0%, var(--museum-green-deep) 100%);
-  color: #fff;
+  color: var(--museum-body-text);
   overflow: clip;
 }
 
@@ -66,7 +63,7 @@
   margin: 0 0 1.5rem;
   font-size: clamp(0.95rem, 2vw, 1.1rem);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--museum-muted-text);
 }
 
 .cta {
@@ -76,7 +73,7 @@
   padding: 0.7rem 1.85rem;
   border-radius: 0.5rem;
   background: var(--cta-gold);
-  color: #fff;
+  color: var(--museum-cta-on-gold);
   font-weight: 700;
   font-size: 1rem;
   text-decoration: none;
