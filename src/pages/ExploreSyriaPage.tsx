@@ -6,6 +6,8 @@ import { getExploreSyriaContent } from '../services/exploreSyriaService'
 import { Navbar } from '../components/home/Navbar'
 import { ThemeToggle } from '../components/home/ThemeToggle'
 import { ExploreSyriaMasonry } from '../components/explore/ExploreSyriaMasonry'
+import { ExploreSyriaFeed } from '../components/explore/ExploreSyriaFeed'
+import { ExploreSyriaExploreTabs, type ExploreSyriaTabId } from '../components/explore/ExploreSyriaExploreTabs'
 import styles from './ExploreSyriaPage.module.css'
 
 type Theme = 'light' | 'dark'
@@ -19,6 +21,7 @@ const A11Y: Record<
     themeToLight: string
     themeToDark: string
     languageMenu: string
+    exploreTabs: string
   }
 > = {
   ar: {
@@ -28,6 +31,7 @@ const A11Y: Record<
     themeToLight: 'التبديل إلى الوضع الفاتح',
     themeToDark: 'التبديل إلى الوضع الداكن',
     languageMenu: 'اختيار اللغة',
+    exploreTabs: 'أقسام صفحة اكتشف سوريا',
   },
   en: {
     navAriaLabel: 'Primary navigation',
@@ -36,6 +40,7 @@ const A11Y: Record<
     themeToLight: 'Switch to light mode',
     themeToDark: 'Switch to dark mode',
     languageMenu: 'Choose language',
+    exploreTabs: 'Explore Syria sections',
   },
 }
 
@@ -45,6 +50,7 @@ export function ExploreSyriaPage() {
   const [heroContent, setHeroContent] = useState<HomeHeroContent | null>(null)
   const [explorePage, setExplorePage] = useState<ExploreSyriaPageContent | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [activeTab, setActiveTab] = useState<ExploreSyriaTabId>('posts')
 
   const isRtl = locale === 'ar'
   const a11y = A11Y[locale]
@@ -136,8 +142,38 @@ export function ExploreSyriaPage() {
             </div>
           </div>
           <main className={styles.main}>
-            <ExploreSyriaMasonry content={explorePage} locale={locale} />
+            <div className={styles.mainInner}>
+              {activeTab === 'posts' ? (
+                <ExploreSyriaFeed
+                  posts={explorePage.posts}
+                  locale={locale}
+                  currentUserAvatarSrc="/images/avatar-placeholder.svg"
+                />
+              ) : null}
+              {activeTab === 'photos' ? <ExploreSyriaMasonry content={explorePage} locale={locale} /> : null}
+              {activeTab === 'discover' ? (
+                <section className={styles.discoverPanel} aria-labelledby="discover-intro-heading">
+                  <h2 id="discover-intro-heading" className={styles.discoverTitle}>
+                    {explorePage.discoverIntro.title}
+                  </h2>
+                  <p className={styles.discoverBody}>{explorePage.discoverIntro.body}</p>
+                  <button type="button" className={styles.discoverCta} onClick={() => setActiveTab('photos')}>
+                    {explorePage.discoverIntro.browsePhotosCta}
+                  </button>
+                </section>
+              ) : null}
+            </div>
           </main>
+          <ExploreSyriaExploreTabs
+            active={activeTab}
+            onChange={setActiveTab}
+            labels={{
+              discover: explorePage.overlayButtons.discover,
+              photos: explorePage.overlayButtons.photos,
+              posts: explorePage.overlayButtons.posts,
+            }}
+            tablistAriaLabel={a11y.exploreTabs}
+          />
         </>
       ) : (
         <div className={styles.skeleton} aria-busy="true" aria-live="polite">

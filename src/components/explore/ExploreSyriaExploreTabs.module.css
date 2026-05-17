@@ -1,0 +1,49 @@
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(0.65rem, 2.5vw, 1.1rem);
+  z-index: 30;
+  width: min(100% - clamp(1.5rem, 8vw, 3rem), 42rem);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.65rem;
+  background: var(--color-panel-bg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.tab {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0.65rem 0.5rem;
+  border: none;
+  border-radius: 0.45rem;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 2.8vw, 0.95rem);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.tabInactive {
+  background: var(--cta-gold);
+  color: var(--museum-cta-on-gold);
+}
+
+.tabInactive:hover {
+  background: var(--cta-gold-hover);
+}
+
+.tabActive {
+  background: #0a281f;
+  color: #fff;
+}
+
+.tabActive:hover {
+  filter: brightness(1.12);
+}

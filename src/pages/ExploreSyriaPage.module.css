@@ -95,6 +95,59 @@
   min-height: 40vh;
 }
 
+.mainInner {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-block: clamp(1.25rem, 4vw, 2rem) clamp(6.5rem, 16vw, 8.5rem);
+}
+
+.discoverPanel {
+  width: min(100% - clamp(2rem, 8vw, 3rem), 42rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+  text-align: start;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(26, 31, 28, 0.08);
+  border-radius: 0.55rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme='dark'] .discoverPanel {
+  background: rgba(28, 34, 31, 0.85);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.discoverTitle {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.2rem, 3vw, 1.45rem);
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.discoverBody {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.discoverCta {
+  padding: 0.65rem 1.25rem;
+  border: none;
+  border-radius: 0.45rem;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: var(--cta-gold);
+  color: var(--museum-cta-on-gold);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+.discoverCta:hover {
+  background: var(--cta-gold-hover);
+}
+
 html[data-theme='light'] .main {
   background: #ffffff;
 }

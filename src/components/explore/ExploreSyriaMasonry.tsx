@@ -9,7 +9,7 @@ type ExploreSyriaMasonryProps = {
 }
 
 export function ExploreSyriaMasonry({ content, locale }: ExploreSyriaMasonryProps) {
-  const { tiles, overlayButtons, brandTile } = content
+  const { tiles, brandTile } = content
 
   return (
     <div className={styles.wrap}>
@@ -17,17 +17,6 @@ export function ExploreSyriaMasonry({ content, locale }: ExploreSyriaMasonryProp
         {tiles.map((tile) => (
           <ExploreTile key={tile.id} tile={tile} brandCopy={brandTile} locale={locale} />
         ))}
-      </div>
-      <div className={styles.overlayRow}>
-        <button type="button" className={`${styles.overlayBtn} ${styles.overlayBtnGold}`}>
-          {overlayButtons.posts}
-        </button>
-        <button type="button" className={`${styles.overlayBtn} ${styles.overlayBtnGold}`}>
-          {overlayButtons.visitors}
-        </button>
-        <button type="button" className={`${styles.overlayBtn} ${styles.overlayBtnGreen}`}>
-          {overlayButtons.discover}
-        </button>
       </div>
     </div>
   )

@@ -23,6 +23,25 @@ export type ExploreSyriaTile = {
   layout: ExploreTileLayoutId
 }
 
+export type ExploreSyriaPost = {
+  id: string
+  authorName: string
+  authorAvatarSrc: string
+  timeLabel: string
+  body: string
+  hashtags: string[]
+  imageSrc?: string
+  imageAlt?: string
+  likeCount: number
+  commentCount: number
+}
+
+export type ExploreSyriaDiscoverIntro = {
+  title: string
+  body: string
+  browsePhotosCta: string
+}
+
 export type ExploreSyriaPageContent = {
   title: string
   breadcrumb: string
@@ -35,9 +54,11 @@ export type ExploreSyriaPageContent = {
   }
   overlayButtons: {
     posts: string
-    visitors: string
+    photos: string
     discover: string
   }
+  discoverIntro: ExploreSyriaDiscoverIntro
+  posts: ExploreSyriaPost[]
   tiles: ExploreSyriaTile[]
 }
 
