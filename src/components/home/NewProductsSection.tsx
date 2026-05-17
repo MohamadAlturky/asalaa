@@ -1,9 +1,26 @@
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import type { NewProductCardContent, NewProductsSectionContent } from '../../types/homeExtendedSections'
 import styles from './NewProductsSection.module.css'
 
 type NewProductsSectionProps = {
   content: NewProductsSectionContent
+}
+
+function SmartLink({ href, className, children }: { href: string; className: string; children: ReactNode }) {
+  const isAppRoute = href.startsWith('/') && !href.startsWith('//')
+  if (isAppRoute) {
+    return (
+      <Link className={className} to={href}>
+        {children}
+      </Link>
+    )
+  }
+  return (
+    <a className={className} href={href}>
+      {children}
+    </a>
+  )
 }
 
 function HeartOutline({ className }: { className?: string }) {
@@ -45,9 +62,9 @@ function ProductCard({
   return (
     <article className={styles.card}>
       <div className={styles.imageWrap}>
-        <a className={styles.imageLink} href={card.href}>
+        <SmartLink className={styles.imageLink} href={card.href}>
           <img className={styles.image} src={card.imageSrc} alt={card.imageAlt} width={400} height={400} loading="lazy" decoding="async" />
-        </a>
+        </SmartLink>
         <button
           type="button"
           className={styles.wishlistBtn}
@@ -58,14 +75,14 @@ function ProductCard({
           {wishlisted ? <HeartFilled className={styles.heartIcon} /> : <HeartOutline className={styles.heartIcon} />}
         </button>
       </div>
-      <a className={styles.bodyLink} href={card.href}>
+      <SmartLink className={styles.bodyLink} href={card.href}>
         <div className={styles.body}>
           <span className={styles.tag}>{card.categoryLabel}</span>
           <h3 className={styles.cardTitle}>{card.title}</h3>
           <p className={styles.creator}>{card.creatorName}</p>
           <p className={styles.price}>{card.priceLabel}</p>
         </div>
-      </a>
+      </SmartLink>
     </article>
   )
 }
@@ -89,9 +106,9 @@ export function NewProductsSection({ content }: NewProductsSectionProps) {
           <h2 className={styles.title} id="new-products-heading">
             {content.sectionTitle}
           </h2>
-          <a className={styles.viewAll} href={content.viewAllHref}>
+          <SmartLink className={styles.viewAll} href={content.viewAllHref}>
             {content.viewAllLabel}
-          </a>
+          </SmartLink>
         </header>
         <div className={styles.grid}>
           {content.cards.map((card) => (

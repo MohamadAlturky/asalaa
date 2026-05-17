@@ -23,7 +23,7 @@ function makeCards(
 
   return Array.from({ length: 8 }, (_, i) => ({
     id: `np-${i + 1}`,
-    href: `#product-${i + 1}`,
+    href: i === 0 ? '/products/brass-mortar' : `#product-${i + 1}`,
     imageSrc,
     imageAlt,
     categoryLabel: category,
@@ -44,7 +44,7 @@ const DATA: Record<AppLocale, HomeExtendedSectionsContent> = {
     newProducts: {
       sectionTitle: 'منتجات جديدة',
       viewAllLabel: 'عرض الكل ←',
-      viewAllHref: '#products-new',
+      viewAllHref: '/products',
       wishlistAddAriaLabel: 'إضافة إلى المفضلة',
       wishlistRemoveAriaLabel: 'إزالة من المفضلة',
       cards: [],
@@ -74,7 +74,7 @@ const DATA: Record<AppLocale, HomeExtendedSectionsContent> = {
     newProducts: {
       sectionTitle: 'New products',
       viewAllLabel: 'View all →',
-      viewAllHref: '#products-new',
+      viewAllHref: '/products',
       wishlistAddAriaLabel: 'Add to wishlist',
       wishlistRemoveAriaLabel: 'Remove from wishlist',
       cards: [],

@@ -6,7 +6,7 @@ const DATA: Record<AppLocale, HomeExploreContent> = {
     categories: [
       { id: 'stores', href: '#stores', label: 'المتاجر', iconVariant: 'lamp' },
       { id: 'artisans', href: '#artisans', label: 'الحرفيين', iconVariant: 'lamp' },
-      { id: 'products', href: '#products', label: 'المنتجات', iconVariant: 'lamp' },
+      { id: 'products', href: '/products', label: 'المنتجات', iconVariant: 'lamp' },
       { id: 'app', href: '#asala-app', label: 'تطبيق أصالة', iconVariant: 'lamp' },
       { id: 'categories', href: '#categories', label: 'الفئات (فئات المنتجات)', iconVariant: 'lamp' },
     ],
@@ -22,7 +22,7 @@ const DATA: Record<AppLocale, HomeExploreContent> = {
     categories: [
       { id: 'stores', href: '#stores', label: 'Stores', iconVariant: 'lamp' },
       { id: 'artisans', href: '#artisans', label: 'Artisans', iconVariant: 'lamp' },
-      { id: 'products', href: '#products', label: 'Products', iconVariant: 'lamp' },
+      { id: 'products', href: '/products', label: 'Products', iconVariant: 'lamp' },
       { id: 'app', href: '#asala-app', label: 'Asala app', iconVariant: 'lamp' },
       { id: 'categories', href: '#categories', label: 'Categories (product types)', iconVariant: 'lamp' },
     ],
