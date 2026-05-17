@@ -9,7 +9,7 @@ type HomeDiscoverSectionProps = {
 
 export function HomeDiscoverSection({ content, categoriesNavLabel }: HomeDiscoverSectionProps) {
   return (
-    <div>
+    <div id="discover">
       <CategoryFeatureRail items={content.categories} ariaLabel={categoriesNavLabel} />
       <DiscoverSyriaBanner banner={content.banner} />
     </div>

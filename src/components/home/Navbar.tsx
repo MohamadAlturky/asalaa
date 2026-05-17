@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import type { AppLocale, NavLinkItem } from '../../types/homeContent'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeToggle } from './ThemeToggle'
@@ -67,20 +68,18 @@ export function Navbar({
     <header className={styles.header}>
       <div className={styles.bar}>
         <div className={styles.start}>
-          <a href="#top" className={styles.brand} onClick={closeDrawer}>
+          <Link to="/" className={styles.brand} onClick={closeDrawer}>
             <span className={styles.brandMark} aria-hidden>
               <BrandMark />
             </span>
             <span className={styles.brandName}>{brandName}</span>
-          </a>
+          </Link>
 
           <nav className={styles.desktopNav} aria-label={navAriaLabel}>
             <ul className={styles.desktopList}>
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a className={styles.navLink} href={link.href}>
-                    {link.label}
-                  </a>
+                  <NavAnchor className={styles.navLink} link={link} />
                 </li>
               ))}
             </ul>
@@ -137,14 +136,12 @@ export function Navbar({
           <ul className={styles.drawerList}>
             {navLinks.map((link, i) => (
               <li key={link.href}>
-                <a
+                <DrawerNavLink
                   ref={i === 0 ? firstLinkRef : undefined}
+                  link={link}
                   className={styles.drawerLink}
-                  href={link.href}
-                  onClick={closeDrawer}
-                >
-                  {link.label}
-                </a>
+                  onNavigate={closeDrawer}
+                />
               </li>
             ))}
           </ul>
@@ -153,6 +150,42 @@ export function Navbar({
     </header>
   )
 }
+
+function isExternalHref(href: string) {
+  return /^https?:\/\//i.test(href) || href.startsWith('mailto:')
+}
+
+function NavAnchor({ link, className }: { link: NavLinkItem; className: string }) {
+  if (isExternalHref(link.href)) {
+    return (
+      <a className={className} href={link.href}>
+        {link.label}
+      </a>
+    )
+  }
+  return (
+    <Link className={className} to={link.href}>
+      {link.label}
+    </Link>
+  )
+}
+
+const DrawerNavLink = forwardRef<HTMLAnchorElement, { link: NavLinkItem; className: string; onNavigate: () => void }>(
+  function DrawerNavLink({ link, className, onNavigate }, ref) {
+    if (isExternalHref(link.href)) {
+      return (
+        <a ref={ref} className={className} href={link.href} onClick={onNavigate}>
+          {link.label}
+        </a>
+      )
+    }
+    return (
+      <Link ref={ref} className={className} to={link.href} onClick={onNavigate}>
+        {link.label}
+      </Link>
+    )
+  },
+)
 
 function BrandMark() {
   return (

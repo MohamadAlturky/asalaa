@@ -13,7 +13,7 @@ const DATA: Record<AppLocale, HomeExploreContent> = {
     banner: {
       heading: 'اكتشف سوريا',
       ctaLabel: 'ابدأ الآن',
-      ctaHref: '#discover',
+      ctaHref: '/explore-syria',
       imageSrc: '/images/discover-syria-banner.jpg',
       imageAlt: 'آثار تدمر — تترابيلون',
     },
@@ -29,7 +29,7 @@ const DATA: Record<AppLocale, HomeExploreContent> = {
     banner: {
       heading: 'Discover Syria',
       ctaLabel: 'Start now',
-      ctaHref: '#discover',
+      ctaHref: '/explore-syria',
       imageSrc: '/images/discover-syria-banner.jpg',
       imageAlt: 'Palmyra ruins — columns at the site',
     },

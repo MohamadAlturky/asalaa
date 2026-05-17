@@ -1,5 +1,10 @@
+import { Link } from 'react-router-dom'
 import type { DiscoverBannerContent } from '../../types/homeExplore'
 import styles from './DiscoverSyriaBanner.module.css'
+
+function isExternalHref(href: string) {
+  return /^https?:\/\//i.test(href) || href.startsWith('mailto:')
+}
 
 type DiscoverSyriaBannerProps = {
   banner: DiscoverBannerContent
@@ -14,9 +19,15 @@ export function DiscoverSyriaBanner({ banner }: DiscoverSyriaBannerProps) {
           <h2 className={styles.heading} id="discover-syria-heading">
             {banner.heading}
           </h2>
-          <a className={styles.cta} href={banner.ctaHref}>
-            {banner.ctaLabel}
-          </a>
+          {isExternalHref(banner.ctaHref) ? (
+            <a className={styles.cta} href={banner.ctaHref}>
+              {banner.ctaLabel}
+            </a>
+          ) : (
+            <Link className={styles.cta} to={banner.ctaHref}>
+              {banner.ctaLabel}
+            </Link>
+          )}
         </div>
         <div className={styles.media}>
           <img

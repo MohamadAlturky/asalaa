@@ -4,9 +4,9 @@ const DATA: Record<AppLocale, HomeHeroContent> = {
   ar: {
     brandName: 'أصالة',
     navLinks: [
-      { href: '#discover', label: 'اكتشف سوريا' },
-      { href: '#museum', label: 'متحف أصالة' },
-      { href: '#heritage', label: 'من ذاكرة التراث' },
+      { href: '/explore-syria', label: 'اكتشف سوريا' },
+      { href: '/#museum', label: 'متحف أصالة' },
+      { href: '/#heritage', label: 'من ذاكرة التراث' },
     ],
     hero: {
       line1: 'حكاية وطن',
@@ -20,9 +20,9 @@ const DATA: Record<AppLocale, HomeHeroContent> = {
   en: {
     brandName: 'Asala',
     navLinks: [
-      { href: '#discover', label: 'Discover Syria' },
-      { href: '#museum', label: 'Asala Museum' },
-      { href: '#heritage', label: 'From Heritage Memory' },
+      { href: '/explore-syria', label: 'Discover Syria' },
+      { href: '/#museum', label: 'Asala Museum' },
+      { href: '/#heritage', label: 'From Heritage Memory' },
     ],
     hero: {
       line1: 'A story of a nation',
