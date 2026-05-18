@@ -4,17 +4,21 @@
 
 .strip {
   width: 100%;
-  height: clamp(3.25rem, 8vw, 4.5rem);
+  height: clamp(5rem, 14vw, 9rem);
   overflow: hidden;
   background: var(--museum-green-deep);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .stripImg {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: brightness(0.92) drop-shadow(0 -4px 12px rgba(0, 0, 0, 0.35));
 }
 
 .body {

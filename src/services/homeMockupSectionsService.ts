@@ -1,12 +1,13 @@
 import type { AppLocale } from '../types/homeContent'
 import type { HomeMockupSectionsContent } from '../types/homeMockupSections'
 
-/** Expected under `public/images/mockup/` — replace with JPG/PNG when final art is ready */
+/** Figma-provided art lives under `public/images/figma/`. */
 export const MOCKUP_IMAGE_PATHS = {
-  museumStrip: '/images/mockup/museum-strip.svg',
-  museumBust: '/images/mockup/museum-bust.svg',
-  heritageCard: '/images/mockup/heritage-palmyra.svg',
-  appPhone: '/images/mockup/app-phone.svg',
+  museumStrip:
+    '/images/figma/%E2%80%94Pngtree%E2%80%94palmyra%20ruins%20sand%20culture%20site_15990412%201%402x.png',
+  museumBust: '/images/figma/093_mh1932_2_C_OII_sm-11652%201.png',
+  heritageCard: '/images/figma/arch-Syria-Grand-Colonnade-Palmyra-ISIS%201.png',
+  appPhone: '/images/figma/Artboard3_1%201.png',
 } as const
 
 const DATA: Record<AppLocale, HomeMockupSectionsContent> = {

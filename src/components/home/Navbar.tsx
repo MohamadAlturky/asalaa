@@ -189,23 +189,14 @@ const DrawerNavLink = forwardRef<HTMLAnchorElement, { link: NavLinkItem; classNa
 
 function BrandMark() {
   return (
-    <svg viewBox="0 0 40 40" width="40" height="40" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-      <defs>
-        <linearGradient id="brandGold" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#f2d27a" />
-          <stop offset="100%" stopColor="#b8892a" />
-        </linearGradient>
-      </defs>
-      <circle cx="20" cy="20" r="19" fill="none" stroke="url(#brandGold)" strokeWidth="1.5" />
-      <circle cx="20" cy="20" r="12" fill="none" stroke="url(#brandGold)" strokeWidth="1.25" opacity="0.85" />
-      <path
-        d="M20 6l2.2 6.8h7l-5.7 4.1 2.2 6.8-5.7-4.1-5.7 4.1 2.2-6.8-5.7-4.1h7z"
-        fill="none"
-        stroke="url(#brandGold)"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <img
+      src="/images/figma/Logo.png"
+      alt=""
+      width={40}
+      height={40}
+      decoding="async"
+      loading="eager"
+    />
   )
 }
 

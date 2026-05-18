@@ -7,15 +7,14 @@ type AsalaHomeFooterProps = {
 
 function Logo({ title }: { title: string }) {
   return (
-    <svg width="72" height="72" viewBox="0 0 72 72" role="img" aria-label={title}>
-      <circle cx="36" cy="36" r="34" fill="none" stroke="#c9a227" strokeWidth="2" />
-      <path
-        fill="#c9a227"
-        d="M36 12 44 28h16L48 40l6 20-18-10-18 10 6-20-12-12h16z"
-        opacity="0.95"
-      />
-      <circle cx="36" cy="36" r="8" fill="#0f1412" stroke="#e8d89a" strokeWidth="1.2" />
-    </svg>
+    <img
+      src="/images/figma/Logo.png"
+      alt={title}
+      width={88}
+      height={88}
+      decoding="async"
+      loading="lazy"
+    />
   )
 }
 
