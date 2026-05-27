@@ -12,10 +12,10 @@ const DATA: Record<AppLocale, HomeExploreContent> = {
     ],
     banner: {
       heading: 'اكتشف سوريا',
-      ctaLabel: 'ابدأ الآن',
+      ctaLabel: 'إبدأ الآن',
       ctaHref: '/explore-syria',
-      imageSrc: '/images/figma/arch-Syria-Grand-Colonnade-Palmyra-ISIS%201.png',
-      imageAlt: 'قوس النصر في تدمر',
+      imageSrc: '/images/figma/palmyra-tetrapylon.png',
+      imageAlt: 'رباعي الأعمدة في تدمر',
     },
   },
   en: {
@@ -30,8 +30,8 @@ const DATA: Record<AppLocale, HomeExploreContent> = {
       heading: 'Discover Syria',
       ctaLabel: 'Start now',
       ctaHref: '/explore-syria',
-      imageSrc: '/images/figma/arch-Syria-Grand-Colonnade-Palmyra-ISIS%201.png',
-      imageAlt: 'Monumental Arch at Palmyra',
+      imageSrc: '/images/figma/palmyra-tetrapylon.png',
+      imageAlt: 'Tetrapylon at Palmyra',
     },
   },
 }

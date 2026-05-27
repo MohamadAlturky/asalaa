@@ -4,7 +4,7 @@ import type { HomeMockupSectionsContent } from '../types/homeMockupSections'
 /** Figma-provided art lives under `public/images/figma/`. */
 export const MOCKUP_IMAGE_PATHS = {
   museumStrip:
-    '/images/figma/%E2%80%94Pngtree%E2%80%94palmyra%20ruins%20sand%20culture%20site_15990412%201%402x.png',
+    '/images/figma/093_mh1932_2_C_OII_sm-11652 1.png',
   museumBust: '/images/figma/093_mh1932_2_C_OII_sm-11652%201.png',
   heritageCard: '/images/figma/arch-Syria-Grand-Colonnade-Palmyra-ISIS%201.png',
   appPhone: '/images/figma/Artboard3_1%201.png',

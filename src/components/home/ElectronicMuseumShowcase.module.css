@@ -101,7 +101,24 @@
   align-items: flex-end;
 }
 
+.bustWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bustDecor {
+  position: absolute;
+  width: 190%;
+  height: auto;
+  opacity: 0.25;
+  pointer-events: none;
+  user-select: none;
+}
+
 .bust {
+  position: relative;
   display: block;
   width: min(100%, 22rem);
   height: auto;

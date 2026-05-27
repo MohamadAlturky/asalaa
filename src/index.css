@@ -13,8 +13,8 @@
   --color-focus-ring: #c9a227;
 
   /* Hero (deep green in both themes) */
-  --hero-section-bg: #0d3327;
-  --hero-overlay-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.6) 100%);
+  --hero-section-bg: #353535;
+  --hero-overlay-gradient: linear-gradient(180deg, rgba(53, 53, 53, 0.50) 0%, rgba(53, 53, 53, 0.70) 100%);
   --hero-text: #ffffff;
   --hero-line-solid-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
   --hero-line-hollow-shadow: 0 6px 36px rgba(0, 0, 0, 0.35);
@@ -71,7 +71,7 @@ html[data-theme='light'] {
 
   /* Hero stays deep green in light theme too */
   --hero-section-bg: #0d3327;
-  --hero-overlay-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.6) 100%);
+  --hero-overlay-gradient: linear-gradient(180deg, rgba(13, 51, 39, 0.50) 0%, rgba(13, 51, 39, 0.70) 100%);
   --hero-text: #ffffff;
   --hero-line-solid-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
   --hero-line-hollow-shadow: 0 6px 36px rgba(0, 0, 0, 0.35);
