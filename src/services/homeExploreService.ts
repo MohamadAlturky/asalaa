@@ -4,11 +4,11 @@ import type { HomeExploreContent } from '../types/homeExplore'
 const DATA: Record<AppLocale, HomeExploreContent> = {
   ar: {
     categories: [
-      { id: 'stores', href: '#stores', label: 'المتاجر', iconVariant: 'lamp' },
-      { id: 'artisans', href: '#artisans', label: 'الحرفيين', iconVariant: 'lamp' },
-      { id: 'products', href: '/products', label: 'المنتجات', iconVariant: 'lamp' },
-      { id: 'app', href: '#asala-app', label: 'تطبيق أصالة', iconVariant: 'lamp' },
-      { id: 'categories', href: '#categories', label: 'الفئات (فئات المنتجات)', iconVariant: 'lamp' },
+      { id: 'stores', href: '#stores', label: 'المتاجر', imageSrc: 'https://images.unsplash.com/photo-1567981964101-13d2faf0e38b?auto=format&fit=crop&w=200&h=200&q=80', imageAlt: 'سوق تقليدي' },
+      { id: 'artisans', href: '#artisans', label: 'الحرفيين', imageSrc: 'https://images.unsplash.com/photo-1422246358533-95dcd3d48961?auto=format&fit=crop&w=200&h=200&q=80', imageAlt: 'حرفي يعمل الفخار' },
+      { id: 'products', href: '/products', label: 'المنتجات', imageSrc: 'https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=200&h=200&q=80', imageAlt: 'منتجات يدوية تقليدية' },
+      { id: 'app', href: '#asala-app', label: 'تطبيق أصالة', imageSrc: 'https://images.unsplash.com/photo-1744900647430-965ccc7a6078?auto=format&fit=crop&w=200&h=200&q=80', imageAlt: 'تطبيق على الهاتف الذكي' },
+      { id: 'categories', href: '#categories', label: 'الفئات (فئات المنتجات)', imageSrc: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=200&h=200&q=80', imageAlt: 'تسوق وفئات المنتجات' },
     ],
     banner: {
       heading: 'اكتشف سوريا',
@@ -20,11 +20,11 @@ const DATA: Record<AppLocale, HomeExploreContent> = {
   },
   en: {
     categories: [
-      { id: 'stores', href: '#stores', label: 'Stores', iconVariant: 'lamp' },
-      { id: 'artisans', href: '#artisans', label: 'Artisans', iconVariant: 'lamp' },
-      { id: 'products', href: '/products', label: 'Products', iconVariant: 'lamp' },
-      { id: 'app', href: '#asala-app', label: 'Asala app', iconVariant: 'lamp' },
-      { id: 'categories', href: '#categories', label: 'Categories (product types)', iconVariant: 'lamp' },
+      { id: 'stores', href: '#stores', label: 'Stores', imageSrc: 'https://images.unsplash.com/photo-1567981964101-13d2faf0e38b?auto=format&fit=crop&w=200&h=200&q=80', imageAlt: 'Traditional market' },
+      { id: 'artisans', href: '#artisans', label: 'Artisans', imageSrc: 'https://images.unsplash.com/photo-1422246358533-95dcd3d48961?auto=format&fit=crop&w=200&h=200&q=80', imageAlt: 'Artisan doing pottery' },
+      { id: 'products', href: '/products', label: 'Products', imageSrc: 'https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=200&h=200&q=80', imageAlt: 'Traditional handmade products' },
+      { id: 'app', href: '#asala-app', label: 'Asala app', imageSrc: 'https://images.unsplash.com/photo-1744900647430-965ccc7a6078?auto=format&fit=crop&w=200&h=200&q=80', imageAlt: 'App on a smartphone' },
+      { id: 'categories', href: '#categories', label: 'Categories (product types)', imageSrc: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=200&h=200&q=80', imageAlt: 'Shopping and product categories' },
     ],
     banner: {
       heading: 'Discover Syria',

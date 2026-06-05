@@ -1,36 +1,107 @@
 import type { AppLocale } from '../types/homeContent'
 import type { HomeExtendedSectionsContent } from '../types/homeExtendedSections'
 
-export const EXTENDED_MOCKUP_IMAGE_PATHS = {
-  productBrassMortar: '/images/mockup/product-brass-mortar.png',
-} as const
-
-const PRODUCT_ALT_AR = 'مدق هاون نحاسي مزخرف'
-const PRODUCT_ALT_EN = 'Decorated brass mortar and pestle'
+const CRAFT_IMAGES = [
+  {
+    src: '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (3).png',
+    alt_ar: 'نقش النحاس في سوق دمشق',
+    alt_en: 'Coppersmithing in Damascus Souk',
+    slug: 'brass-damascus',
+    creator_ar: 'فاروق علاء الدين',
+    creator_en: 'Farouk Alaa Al-Din',
+    price_ar: '800,000 ل.س',
+    price_en: '800,000 SYP',
+  },
+  {
+    src: '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu.png',
+    alt_ar: 'الفسيفساء الدمشقية المعقدة',
+    alt_en: 'Mosaics in Damascus',
+    slug: 'mosaic-damascus',
+    creator_ar: 'سارة الحمصي',
+    creator_en: 'Sara Al-Homsi',
+    price_ar: '1,200,000 ل.س',
+    price_en: '1,200,000 SYP',
+  },
+  {
+    src: '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (1).png',
+    alt_ar: 'الخزف الحلبي التقليدي',
+    alt_en: 'Ceramics in Aleppo',
+    slug: 'ceramics-aleppo',
+    creator_ar: 'أحمد الحلبي',
+    creator_en: 'Ahmad Al-Halabi',
+    price_ar: '650,000 ل.س',
+    price_en: '650,000 SYP',
+  },
+  {
+    src: '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (2).png',
+    alt_ar: 'النسيج البدوي في تدمر',
+    alt_en: 'Textiles in Palmyra',
+    slug: 'textiles-palmyra',
+    creator_ar: 'ليلى البدوية',
+    creator_en: 'Layla Al-Badawiyya',
+    price_ar: '950,000 ل.س',
+    price_en: '950,000 SYP',
+  },
+  {
+    src: '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa.png',
+    alt_ar: 'نفخ الزجاج الدمشقي',
+    alt_en: 'Glassblowing in Damascus',
+    slug: 'glassblowing-damascus',
+    creator_ar: 'كريم الدمشقي',
+    creator_en: 'Karim Al-Dimashqi',
+    price_ar: '1,500,000 ل.س',
+    price_en: '1,500,000 SYP',
+  },
+  {
+    src: '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (1).png',
+    alt_ar: 'التطعيم بالصدف والماركتري',
+    alt_en: 'Marquetry in Damascus',
+    slug: 'marquetry-damascus',
+    creator_ar: 'نور الطرابلسي',
+    creator_en: 'Nour Al-Taraboulsi',
+    price_ar: '1,100,000 ل.س',
+    price_en: '1,100,000 SYP',
+  },
+  {
+    src: '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (2).png',
+    alt_ar: 'صناعة صابون الغار الحلبي',
+    alt_en: 'Soap Making in Aleppo',
+    slug: 'soap-aleppo',
+    creator_ar: 'يوسف الصابوني',
+    creator_en: 'Youssef Al-Sabouni',
+    price_ar: '350,000 ل.س',
+    price_en: '350,000 SYP',
+  },
+  {
+    src: '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (3).png',
+    alt_ar: 'التطريز اليدوي في حماة',
+    alt_en: 'Hand Embroidery in Hama',
+    slug: 'embroidery-hama',
+    creator_ar: 'هند الحموية',
+    creator_en: 'Hind Al-Hamawiyya',
+    price_ar: '720,000 ل.س',
+    price_en: '720,000 SYP',
+  },
+]
 
 function makeCards(
   locale: AppLocale,
 ): HomeExtendedSectionsContent['newProducts']['cards'] {
-  const imageSrc = EXTENDED_MOCKUP_IMAGE_PATHS.productBrassMortar
-  const imageAlt = locale === 'ar' ? PRODUCT_ALT_AR : PRODUCT_ALT_EN
-  const category = locale === 'ar' ? 'نحاسيات' : 'Brassware'
-  const title =
-    locale === 'ar'
-      ? 'مدق هاون نحاس محفور يدوياً تراث..'
-      : 'Hand-engraved brass mortar, heritage…'
-  const creator = locale === 'ar' ? 'فاروق علاء الدين' : 'Farouk Alaa Al-Din'
-  const price = locale === 'ar' ? '800,000 ل.س' : '800,000 SYP'
+  const category = locale === 'ar' ? 'حرف يدوية' : 'Handicrafts'
 
-  return Array.from({ length: 8 }, (_, i) => ({
-    id: `np-${i + 1}`,
-    href: i === 0 ? '/products/brass-mortar' : `#product-${i + 1}`,
-    imageSrc,
-    imageAlt,
-    categoryLabel: category,
-    title,
-    creatorName: creator,
-    priceLabel: price,
-  }))
+  return Array.from({ length: 8 }, (_, i) => {
+    const craft = CRAFT_IMAGES[i]
+    return {
+      id: `np-${i + 1}`,
+      href: `/products/${craft.slug}`,
+      imageSrc: craft.src,
+      imageAlt: locale === 'ar' ? craft.alt_ar : craft.alt_en,
+      categoryLabel: category,
+      title: locale === 'ar' ? craft.alt_ar : craft.alt_en,
+      creatorName: locale === 'ar' ? craft.creator_ar : craft.creator_en,
+      priceLabel: locale === 'ar' ? craft.price_ar : craft.price_en,
+    }
+  })
 }
 
 const DATA: Record<AppLocale, HomeExtendedSectionsContent> = {

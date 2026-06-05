@@ -146,20 +146,26 @@ export function ProductsIndexPage() {
             </div>
           </div>
           <main className={styles.main}>
-            <div className={styles.card}>
-              <Link className={styles.sampleCard} to={indexContent.sampleProductHref}>
-                <span className={styles.sampleImgWrap}>
-                  <img
-                    className={styles.sampleImg}
-                    src={indexContent.sampleProductImageSrc}
-                    alt={indexContent.sampleProductImageAlt}
-                    width={200}
-                    height={200}
-                  />
-                </span>
-                <span className={styles.sampleTitle}>{indexContent.sampleProductTitle}</span>
-              </Link>
-            </div>
+            <ul className={styles.grid}>
+              {indexContent.products.map((product) => (
+                <li key={product.slug}>
+                  <Link className={styles.sampleCard} to={product.href}>
+                    <span className={styles.sampleImgWrap}>
+                      <img
+                        className={styles.sampleImg}
+                        src={product.imageSrc}
+                        alt={product.imageAlt}
+                        width={200}
+                        height={200}
+                      />
+                    </span>
+                    <span className={styles.sampleCategory}>{product.categoryLabel}</span>
+                    <span className={styles.sampleTitle}>{product.title}</span>
+                    <span className={styles.samplePrice}>{product.priceDisplay}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </main>
         </>
       ) : (

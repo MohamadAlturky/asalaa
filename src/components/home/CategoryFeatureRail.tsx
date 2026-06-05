@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 import type { CategoryFeatureItem } from '../../types/homeExplore'
 import { Link } from 'react-router-dom'
-import { CategoryFeatureIcon } from './CategoryFeatureIcon'
 import styles from './CategoryFeatureRail.module.css'
 
 function CategoryLink({ href, className, children }: { href: string; className: string; children: ReactNode }) {
@@ -39,7 +38,7 @@ export function CategoryFeatureRail({ items, ariaLabel }: CategoryFeatureRailPro
           <li key={item.id} className={styles.item}>
             <CategoryLink className={styles.link} href={item.href}>
               <span className={styles.iconWrap}>
-                <CategoryFeatureIcon />
+                <img src={item.imageSrc} alt={item.imageAlt} className={styles.categoryImg} />
               </span>
               <span className={styles.label}>{item.label}</span>
             </CategoryLink>

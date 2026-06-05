@@ -32,12 +32,19 @@ export type ProductDetailContent = {
   thumbnailPickerLabel: string
 }
 
+export type ProductListItem = {
+  slug: string
+  href: string
+  title: string
+  categoryLabel: string
+  priceDisplay: string
+  imageSrc: string
+  imageAlt: string
+}
+
 export type ProductsIndexContent = {
   pageTitle: string
   breadcrumbHomeLabel: string
   intro: string
-  sampleProductTitle: string
-  sampleProductHref: string
-  sampleProductImageSrc: string
-  sampleProductImageAlt: string
+  products: ProductListItem[]
 }
