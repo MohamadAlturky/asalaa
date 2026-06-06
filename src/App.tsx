@@ -9,7 +9,7 @@ import { ProvidersPage } from './pages/ProvidersPage'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/asalaa">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/explore-syria" element={<ExploreSyriaPage />} />

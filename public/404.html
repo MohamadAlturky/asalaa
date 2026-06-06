@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>asala</title>
+    <script>
+      // SPA redirect trick for GitHub Pages.
+      // Encodes the full path as a query param and redirects to the root.
+      var repo = '/asalaa';
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        repo + '/?p=' + encodeURIComponent(l.pathname.slice(repo.length) + l.search) +
+        (l.hash || '')
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

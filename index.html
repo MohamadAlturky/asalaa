@@ -2,6 +2,15 @@
 <html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Restore the path encoded by 404.html for GitHub Pages SPA routing.
+      (function () {
+        var p = new URLSearchParams(window.location.search).get('p');
+        if (p) {
+          window.history.replaceState(null, '', '/asalaa' + p);
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
