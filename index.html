@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <script>
@@ -17,9 +17,17 @@
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>asala</title>
+    <script>
+      (function () {
+        var locale = localStorage.getItem('asala-locale');
+        document.title = locale === 'en'
+          ? 'Asala - syrians culture'
+          : 'تاريخ حضارة سوريا - أصالة';
+      })();
+    </script>
+    <title>تاريخ حضارة سوريا - أصالة</title>
   </head>
   <body>
     <div id="root"></div>

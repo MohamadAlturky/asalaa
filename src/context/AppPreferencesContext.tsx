@@ -29,7 +29,7 @@ function getStoredTheme(): Theme {
   } catch {
     // ignore
   }
-  return 'dark'
+  return 'light'
 }
 
 export function AppPreferencesProvider({ children }: { children: ReactNode }) {
@@ -50,6 +50,9 @@ export function AppPreferencesProvider({ children }: { children: ReactNode }) {
     const root = document.documentElement
     root.lang = locale === 'ar' ? 'ar' : 'en'
     root.dir = locale === 'ar' ? 'rtl' : 'ltr'
+    document.title = locale === 'en'
+      ? 'Asala - syrians culture'
+      : 'تاريخ حضارة سوريا - أصالة'
   }, [locale])
 
   useEffect(() => {

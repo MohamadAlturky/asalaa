@@ -104,7 +104,7 @@ export function Navbar({
             <img src="/asalaa/images/avatar-placeholder.svg" alt="" width={36} height={36} />
           </div>
 
-          <ThemeToggle theme={theme} onChange={onThemeChange} labels={themeToggleLabels} />
+          {/* <ThemeToggle theme={theme} onChange={onThemeChange} labels={themeToggleLabels} /> */}
 
           <LanguageSwitcher
             locale={locale}
