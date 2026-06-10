@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import type { AppLocale, HomeHeroContent } from '../types/homeContent'
+import { useAppPreferences } from '../context/AppPreferencesContext'
 import type {
   ProfileData,
   ProfilePost,
@@ -33,8 +34,6 @@ import { ProfileMuseumGrid } from '../components/profile/ProfileMuseumGrid'
 import { ProfileArticlesGrid } from '../components/profile/ProfileArticlesGrid'
 import { ProfileVideosGrid } from '../components/profile/ProfileVideosGrid'
 import styles from './ProfilePage.module.css'
-
-type Theme = 'light' | 'dark'
 
 type LocaleStrings = {
   navAriaLabel: string
@@ -81,8 +80,7 @@ const A11Y: Record<AppLocale, LocaleStrings> = {
 
 export function ProfilePage() {
   const { username } = useParams<{ username: string }>()
-  const [locale, setLocale] = useState<AppLocale>('ar')
-  const [theme, setTheme] = useState<Theme>('dark')
+  const { locale, setLocale, theme, setTheme } = useAppPreferences()
 
   const [heroContent, setHeroContent] = useState<HomeHeroContent | null>(null)
   const [profileData, setProfileData] = useState<ProfileData | null>(null)
@@ -99,16 +97,6 @@ export function ProfilePage() {
   const isRtl = locale === 'ar'
   const a11y = A11Y[locale]
   const chromeReady = heroContent !== null && profileData !== null
-
-  useEffect(() => {
-    const root = document.documentElement
-    root.lang = locale === 'ar' ? 'ar' : 'en'
-    root.dir = locale === 'ar' ? 'rtl' : 'ltr'
-  }, [locale])
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-  }, [theme])
 
   useEffect(() => {
     let cancelled = false

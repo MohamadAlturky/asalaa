@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import type { AppLocale, HomeHeroContent } from '../types/homeContent'
+import { useAppPreferences } from '../context/AppPreferencesContext'
 import type { ProductDetailContent } from '../types/productDetail'
 import { getHomeHeroContent } from '../services/homeContentService'
 import { getProductDetail } from '../services/productDetailService'
@@ -8,8 +9,6 @@ import { Navbar } from '../components/home/Navbar'
 import { ThemeToggle } from '../components/home/ThemeToggle'
 import { ProductDetailGallery } from '../components/product/ProductDetailGallery'
 import styles from './ProductDetailPage.module.css'
-
-type Theme = 'light' | 'dark'
 
 const A11Y: Record<
   AppLocale,
@@ -49,8 +48,7 @@ const A11Y: Record<
 export function ProductDetailPage() {
   const { slug } = useParams<{ slug: string }>()
   const resolvedSlug = slug ?? ''
-  const [locale, setLocale] = useState<AppLocale>('ar')
-  const [theme, setTheme] = useState<Theme>('dark')
+  const { locale, setLocale, theme, setTheme } = useAppPreferences()
   const [heroContent, setHeroContent] = useState<HomeHeroContent | null>(null)
   const [product, setProduct] = useState<ProductDetailContent | null>(null)
   const [loadedSlug, setLoadedSlug] = useState<string | null>(null)
@@ -63,16 +61,6 @@ export function ProductDetailPage() {
   const isRtl = locale === 'ar'
   const a11y = A11Y[locale]
   const pageReady = heroContent !== null && loadedSlug === resolvedSlug && product !== null
-
-  useEffect(() => {
-    const root = document.documentElement
-    root.lang = locale === 'ar' ? 'ar' : 'en'
-    root.dir = locale === 'ar' ? 'rtl' : 'ltr'
-  }, [locale])
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-  }, [theme])
 
   useEffect(() => {
     if (!resolvedSlug) return

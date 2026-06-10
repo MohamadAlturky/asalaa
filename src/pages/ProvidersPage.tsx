@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { AppLocale, HomeHeroContent } from '../types/homeContent'
+import { useAppPreferences } from '../context/AppPreferencesContext'
 import type { ProviderItem, ProvidersPageContent } from '../types/providers'
 import { getHomeHeroContent } from '../services/homeContentService'
 import { getProviders, getProvidersPageContent } from '../services/providersService'
@@ -8,8 +9,6 @@ import { Navbar } from '../components/home/Navbar'
 import { ThemeToggle } from '../components/home/ThemeToggle'
 import { ProviderCard } from '../components/providers/ProviderCard'
 import styles from './ProvidersPage.module.css'
-
-type Theme = 'light' | 'dark'
 
 const A11Y: Record<
   AppLocale,
@@ -41,9 +40,8 @@ const A11Y: Record<
 }
 
 export function ProvidersPage() {
-  const [locale, setLocale] = useState<AppLocale>('ar')
-  const [theme, setTheme] = useState<Theme>('dark')
-  
+  const { locale, setLocale, theme, setTheme } = useAppPreferences()
+
   const [heroContent, setHeroContent] = useState<HomeHeroContent | null>(null)
   const [pageContent, setPageContent] = useState<ProvidersPageContent | null>(null)
   const [providers, setProviders] = useState<ProviderItem[] | null>(null)
@@ -52,16 +50,6 @@ export function ProvidersPage() {
   const isRtl = locale === 'ar'
   const a11y = A11Y[locale]
   const pageReady = heroContent !== null && pageContent !== null && providers !== null
-
-  useEffect(() => {
-    const root = document.documentElement
-    root.lang = locale === 'ar' ? 'ar' : 'en'
-    root.dir = locale === 'ar' ? 'rtl' : 'ltr'
-  }, [locale])
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-  }, [theme])
 
   useEffect(() => {
     let cancelled = false

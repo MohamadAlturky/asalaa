@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { AppLocale, HomeHeroContent } from '../types/homeContent'
+import { useAppPreferences } from '../context/AppPreferencesContext'
 import type { HomeExploreContent } from '../types/homeExplore'
 import { getHomeHeroContent } from '../services/homeContentService'
 import { getHomeExploreContent } from '../services/homeExploreService'
@@ -10,8 +11,6 @@ import { HomeDiscoverSection } from '../components/home/HomeDiscoverSection'
 import { HomeMockupSections } from '../components/home/HomeMockupSections'
 import { HomeExtendedSections } from '../components/home/HomeExtendedSections'
 import styles from './HomePage.module.css'
-
-type Theme = 'light' | 'dark'
 
 const A11Y: Record<
   AppLocale,
@@ -46,8 +45,7 @@ const A11Y: Record<
 }
 
 export function HomePage() {
-  const [locale, setLocale] = useState<AppLocale>('ar')
-  const [theme, setTheme] = useState<Theme>('dark')
+  const { locale, setLocale, theme, setTheme } = useAppPreferences()
   const [heroContent, setHeroContent] = useState<HomeHeroContent | null>(null)
   const [exploreContent, setExploreContent] = useState<HomeExploreContent | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -55,16 +53,6 @@ export function HomePage() {
   const isRtl = locale === 'ar'
   const a11y = A11Y[locale]
   const pageReady = heroContent !== null && exploreContent !== null
-
-  useEffect(() => {
-    const root = document.documentElement
-    root.lang = locale === 'ar' ? 'ar' : 'en'
-    root.dir = locale === 'ar' ? 'rtl' : 'ltr'
-  }, [locale])
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-  }, [theme])
 
   useEffect(() => {
     let cancelled = false

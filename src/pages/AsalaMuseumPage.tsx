@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { AppLocale, HomeHeroContent } from '../types/homeContent'
+import { useAppPreferences } from '../context/AppPreferencesContext'
 import type { MuseumPageContent } from '../types/museum'
 import { getHomeHeroContent } from '../services/homeContentService'
 import { getMuseumPageContent } from '../services/museumService'
@@ -10,8 +11,6 @@ import { MuseumSection } from '../components/museum/MuseumSection'
 import { MuseumThumbnailCarousel } from '../components/museum/MuseumThumbnailCarousel'
 import { MuseumFeaturedCarousel } from '../components/museum/MuseumFeaturedCarousel'
 import styles from './AsalaMuseumPage.module.css'
-
-type Theme = 'light' | 'dark'
 
 const A11Y: Record<
   AppLocale,
@@ -49,8 +48,7 @@ const A11Y: Record<
 }
 
 export function AsalaMuseumPage() {
-  const [locale, setLocale] = useState<AppLocale>('ar')
-  const [theme, setTheme] = useState<Theme>('dark')
+  const { locale, setLocale, theme, setTheme } = useAppPreferences()
   const [heroContent, setHeroContent] = useState<HomeHeroContent | null>(null)
   const [pageContent, setPageContent] = useState<MuseumPageContent | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -58,16 +56,6 @@ export function AsalaMuseumPage() {
   const isRtl = locale === 'ar'
   const a11y = A11Y[locale]
   const pageReady = heroContent !== null && pageContent !== null
-
-  useEffect(() => {
-    const root = document.documentElement
-    root.lang = locale === 'ar' ? 'ar' : 'en'
-    root.dir = locale === 'ar' ? 'rtl' : 'ltr'
-  }, [locale])
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-  }, [theme])
 
   useEffect(() => {
     let cancelled = false

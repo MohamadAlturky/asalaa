@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { AppLocale, HomeHeroContent } from '../types/homeContent'
+import { useAppPreferences } from '../context/AppPreferencesContext'
 import type { ProductsIndexContent } from '../types/productDetail'
 import { getHomeHeroContent } from '../services/homeContentService'
 import { getProductsIndexContent } from '../services/productDetailService'
 import { Navbar } from '../components/home/Navbar'
 import { ThemeToggle } from '../components/home/ThemeToggle'
 import styles from './ProductsIndexPage.module.css'
-
-type Theme = 'light' | 'dark'
 
 const A11Y: Record<
   AppLocale,
@@ -40,8 +39,7 @@ const A11Y: Record<
 }
 
 export function ProductsIndexPage() {
-  const [locale, setLocale] = useState<AppLocale>('ar')
-  const [theme, setTheme] = useState<Theme>('dark')
+  const { locale, setLocale, theme, setTheme } = useAppPreferences()
   const [heroContent, setHeroContent] = useState<HomeHeroContent | null>(null)
   const [indexContent, setIndexContent] = useState<ProductsIndexContent | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -49,16 +47,6 @@ export function ProductsIndexPage() {
   const isRtl = locale === 'ar'
   const a11y = A11Y[locale]
   const pageReady = heroContent !== null && indexContent !== null
-
-  useEffect(() => {
-    const root = document.documentElement
-    root.lang = locale === 'ar' ? 'ar' : 'en'
-    root.dir = locale === 'ar' ? 'rtl' : 'ltr'
-  }, [locale])
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-  }, [theme])
 
   useEffect(() => {
     let cancelled = false

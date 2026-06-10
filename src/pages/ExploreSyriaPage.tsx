@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { AppLocale, HomeHeroContent } from '../types/homeContent'
+import { useAppPreferences } from '../context/AppPreferencesContext'
 import type { ExploreSyriaPageContent } from '../types/exploreSyria'
 import { getHomeHeroContent } from '../services/homeContentService'
 import { getExploreSyriaContent } from '../services/exploreSyriaService'
@@ -9,8 +10,6 @@ import { ExploreSyriaMasonry } from '../components/explore/ExploreSyriaMasonry'
 import { ExploreSyriaFeed } from '../components/explore/ExploreSyriaFeed'
 import { ExploreSyriaExploreTabs, type ExploreSyriaTabId } from '../components/explore/ExploreSyriaExploreTabs'
 import styles from './ExploreSyriaPage.module.css'
-
-type Theme = 'light' | 'dark'
 
 const A11Y: Record<
   AppLocale,
@@ -45,8 +44,7 @@ const A11Y: Record<
 }
 
 export function ExploreSyriaPage() {
-  const [locale, setLocale] = useState<AppLocale>('ar')
-  const [theme, setTheme] = useState<Theme>('dark')
+  const { locale, setLocale, theme, setTheme } = useAppPreferences()
   const [heroContent, setHeroContent] = useState<HomeHeroContent | null>(null)
   const [explorePage, setExplorePage] = useState<ExploreSyriaPageContent | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -55,16 +53,6 @@ export function ExploreSyriaPage() {
   const isRtl = locale === 'ar'
   const a11y = A11Y[locale]
   const pageReady = heroContent !== null && explorePage !== null
-
-  useEffect(() => {
-    const root = document.documentElement
-    root.lang = locale === 'ar' ? 'ar' : 'en'
-    root.dir = locale === 'ar' ? 'rtl' : 'ltr'
-  }, [locale])
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-  }, [theme])
 
   useEffect(() => {
     let cancelled = false
