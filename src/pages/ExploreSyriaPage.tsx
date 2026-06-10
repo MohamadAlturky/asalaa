@@ -147,7 +147,7 @@ export function ExploreSyriaPage() {
                 <ExploreSyriaFeed
                   posts={explorePage.posts}
                   locale={locale}
-                  currentUserAvatarSrc="/images/avatar-placeholder.svg"
+                  currentUserAvatarSrc="/asalaa/images/avatar-placeholder.svg"
                 />
               ) : null}
               {activeTab === 'photos' ? <ExploreSyriaMasonry content={explorePage} locale={locale} /> : null}

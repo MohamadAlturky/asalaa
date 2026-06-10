@@ -101,7 +101,7 @@ export function Navbar({
           </button>
 
           <div className={styles.avatar} aria-hidden title="Profile">
-            <img src="/images/avatar-placeholder.svg" alt="" width={36} height={36} />
+            <img src="/asalaa/images/avatar-placeholder.svg" alt="" width={36} height={36} />
           </div>
 
           <ThemeToggle theme={theme} onChange={onThemeChange} labels={themeToggleLabels} />
@@ -190,7 +190,7 @@ const DrawerNavLink = forwardRef<HTMLAnchorElement, { link: NavLinkItem; classNa
 function BrandMark() {
   return (
     <img
-      src="/images/figma/Logo.png"
+      src="/asalaa/images/figma/Logo.png"
       alt=""
       width={40}
       height={40}

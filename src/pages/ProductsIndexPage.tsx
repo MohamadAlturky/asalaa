@@ -137,7 +137,7 @@ export function ProductsIndexPage() {
               <div className={styles.heroImageWrap}>
                 <img
                   className={styles.heroImage}
-                  src="/images/mockup/museum-strip.svg"
+                  src="/asalaa/images/mockup/museum-strip.svg"
                   alt=""
                   width={120}
                   height={200}

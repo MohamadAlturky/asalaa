@@ -191,7 +191,7 @@ export function ProductDetailPage() {
               <div className={styles.heroImageWrap}>
                 <img
                   className={styles.heroImage}
-                  src={product?.heroDecorImageSrc ?? '/images/mockup/museum-strip.svg'}
+                  src={product?.heroDecorImageSrc ?? '/asalaa/images/mockup/museum-strip.svg'}
                   alt={product?.heroDecorImageAlt ?? ''}
                   width={120}
                   height={200}

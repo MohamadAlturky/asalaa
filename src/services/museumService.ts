@@ -5,7 +5,7 @@ import type {
   MuseumThumbItem,
 } from '../types/museum'
 
-const PLACEHOLDER_IMAGE = '/images/cover-placeholder.svg'
+const PLACEHOLDER_IMAGE = '/asalaa/images/cover-placeholder.svg'
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))

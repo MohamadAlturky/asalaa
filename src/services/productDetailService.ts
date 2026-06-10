@@ -2,14 +2,14 @@ import type { AppLocale } from '../types/homeContent'
 import type { ProductDetailContent, ProductListItem, ProductsIndexContent } from '../types/productDetail'
 
 const IMGS = {
-  coppersmithing: '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (3).png',
-  mosaics:        '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu.png',
-  ceramics:       '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (1).png',
-  textiles:       '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (2).png',
-  glassblowing:   '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa.png',
-  marquetry:      '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (1).png',
-  soap:           '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (2).png',
-  embroidery:     '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (3).png',
+  coppersmithing: '/asalaa/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (3).png',
+  mosaics:        '/asalaa/images/products/Gemini_Generated_Image_pkdubypkdubypkdu.png',
+  ceramics:       '/asalaa/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (1).png',
+  textiles:       '/asalaa/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (2).png',
+  glassblowing:   '/asalaa/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa.png',
+  marquetry:      '/asalaa/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (1).png',
+  soap:           '/asalaa/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (2).png',
+  embroidery:     '/asalaa/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (3).png',
 }
 
 const SHARED_LABELS = {
@@ -17,7 +17,7 @@ const SHARED_LABELS = {
     pageTitle: 'منتجاتنا',
     breadcrumbHomeLabel: 'الصفحة الرئيسية',
     breadcrumbProductsLabel: 'منتجاتنا',
-    heroDecorImageSrc: '/images/mockup/museum-strip.svg',
+    heroDecorImageSrc: '/asalaa/images/mockup/museum-strip.svg',
     heroDecorImageAlt: 'زخرفة تراثية',
     addToCartLabel: 'إضافة إلى سلة المشتريات',
     buyNowLabel: 'اشتري الآن',
@@ -47,7 +47,7 @@ const SHARED_LABELS = {
     pageTitle: 'Our products',
     breadcrumbHomeLabel: 'Home',
     breadcrumbProductsLabel: 'Our products',
-    heroDecorImageSrc: '/images/mockup/museum-strip.svg',
+    heroDecorImageSrc: '/asalaa/images/mockup/museum-strip.svg',
     heroDecorImageAlt: 'Heritage ornament',
     addToCartLabel: 'Add to cart',
     buyNowLabel: 'Buy now',

@@ -30,7 +30,7 @@ export function ElectronicMuseumShowcase({ content }: ElectronicMuseumShowcasePr
             <div className={styles.bustWrapper}>
               <img
                 className={styles.bustDecor}
-                src="/images/figma/Logo (1).png"
+                src="/asalaa/images/figma/Logo (1).png"
                 alt=""
                 aria-hidden="true"
                 width={560}

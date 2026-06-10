@@ -1,13 +1,13 @@
 import type { AppLocale } from '../types/homeContent'
 import type { HomeMockupSectionsContent } from '../types/homeMockupSections'
 
-/** Figma-provided art lives under `public/images/figma/`. */
+/** Figma-provided art lives under `public/asalaa/images/figma/`. */
 export const MOCKUP_IMAGE_PATHS = {
   museumStrip:
-    '/images/figma/093_mh1932_2_C_OII_sm-11652 1.png',
-  museumBust: '/images/figma/093_mh1932_2_C_OII_sm-11652%201.png',
-  heritageCard: '/images/figma/arch-Syria-Grand-Colonnade-Palmyra-ISIS%201.png',
-  appPhone: '/images/figma/Artboard3_1%201.png',
+    '/asalaa/images/figma/093_mh1932_2_C_OII_sm-11652 1.png',
+  museumBust: '/asalaa/images/figma/093_mh1932_2_C_OII_sm-11652%201.png',
+  heritageCard: '/asalaa/images/figma/arch-Syria-Grand-Colonnade-Palmyra-ISIS%201.png',
+  appPhone: '/asalaa/images/figma/Artboard3_1%201.png',
 } as const
 
 const DATA: Record<AppLocale, HomeMockupSectionsContent> = {

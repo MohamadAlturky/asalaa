@@ -1,7 +1,7 @@
 import type { HeritageMemoryContent } from '../../types/homeMockupSections'
 import styles from './HeritageMemorySection.module.css'
 
-const AVATAR_SRC = '/images/avatar-placeholder.svg'
+const AVATAR_SRC = '/asalaa/images/avatar-placeholder.svg'
 
 type HeritageMemorySectionProps = {
   content: HeritageMemoryContent

@@ -8,7 +8,7 @@ type AsalaHomeFooterProps = {
 function Logo({ title }: { title: string }) {
   return (
     <img
-      src="/images/figma/Logo.png"
+      src="/asalaa/images/figma/Logo.png"
       alt={title}
       width={88}
       height={88}

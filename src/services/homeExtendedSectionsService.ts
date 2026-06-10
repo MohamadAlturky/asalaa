@@ -3,7 +3,7 @@ import type { HomeExtendedSectionsContent } from '../types/homeExtendedSections'
 
 const CRAFT_IMAGES = [
   {
-    src: '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (3).png',
+    src: '/asalaa/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (3).png',
     alt_ar: 'نقش النحاس في سوق دمشق',
     alt_en: 'Coppersmithing in Damascus Souk',
     slug: 'brass-damascus',
@@ -13,7 +13,7 @@ const CRAFT_IMAGES = [
     price_en: '800,000 SYP',
   },
   {
-    src: '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu.png',
+    src: '/asalaa/images/products/Gemini_Generated_Image_pkdubypkdubypkdu.png',
     alt_ar: 'الفسيفساء الدمشقية المعقدة',
     alt_en: 'Mosaics in Damascus',
     slug: 'mosaic-damascus',
@@ -23,7 +23,7 @@ const CRAFT_IMAGES = [
     price_en: '1,200,000 SYP',
   },
   {
-    src: '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (1).png',
+    src: '/asalaa/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (1).png',
     alt_ar: 'الخزف الحلبي التقليدي',
     alt_en: 'Ceramics in Aleppo',
     slug: 'ceramics-aleppo',
@@ -33,7 +33,7 @@ const CRAFT_IMAGES = [
     price_en: '650,000 SYP',
   },
   {
-    src: '/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (2).png',
+    src: '/asalaa/images/products/Gemini_Generated_Image_pkdubypkdubypkdu (2).png',
     alt_ar: 'النسيج البدوي في تدمر',
     alt_en: 'Textiles in Palmyra',
     slug: 'textiles-palmyra',
@@ -43,7 +43,7 @@ const CRAFT_IMAGES = [
     price_en: '950,000 SYP',
   },
   {
-    src: '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa.png',
+    src: '/asalaa/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa.png',
     alt_ar: 'نفخ الزجاج الدمشقي',
     alt_en: 'Glassblowing in Damascus',
     slug: 'glassblowing-damascus',
@@ -53,7 +53,7 @@ const CRAFT_IMAGES = [
     price_en: '1,500,000 SYP',
   },
   {
-    src: '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (1).png',
+    src: '/asalaa/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (1).png',
     alt_ar: 'التطعيم بالصدف والماركتري',
     alt_en: 'Marquetry in Damascus',
     slug: 'marquetry-damascus',
@@ -63,7 +63,7 @@ const CRAFT_IMAGES = [
     price_en: '1,100,000 SYP',
   },
   {
-    src: '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (2).png',
+    src: '/asalaa/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (2).png',
     alt_ar: 'صناعة صابون الغار الحلبي',
     alt_en: 'Soap Making in Aleppo',
     slug: 'soap-aleppo',
@@ -73,7 +73,7 @@ const CRAFT_IMAGES = [
     price_en: '350,000 SYP',
   },
   {
-    src: '/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (3).png',
+    src: '/asalaa/images/products/Gemini_Generated_Image_zhsapyzhsapyzhsa (3).png',
     alt_ar: 'التطريز اليدوي في حماة',
     alt_en: 'Hand Embroidery in Hama',
     slug: 'embroidery-hama',
