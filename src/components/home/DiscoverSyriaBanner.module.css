@@ -94,6 +94,14 @@
   outline-offset: 3px;
 }
 
+:global(:dir(ltr)) .inner {
+  justify-content: flex-end;
+}
+
+:global(:dir(ltr)) .copy {
+  text-align: end;
+}
+
 @media (max-width: 720px) {
   .bg {
     background: linear-gradient(
